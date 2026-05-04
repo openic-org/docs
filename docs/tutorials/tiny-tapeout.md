@@ -2,7 +2,7 @@
 
 ## 1. Introduction
 
-[Tiny Tapeout](https://tinytapeout.com/) is a service that allows you to buy small `tiles` within a pre-built framework to fabricate a custom chip with your design at a very low cost. For this purpose, it uses `OpenPDKs` from SkyWaters, GlobalFoundries, and IHP through `Chip Ignite`, `Wafer.Space`, and `IHP`, resepctively.
+[Tiny Tapeout](https://tinytapeout.com/) is a service that allows you to buy small `tiles` within a pre-built framework to fabricate a custom chip with your design at a very low cost. For this purpose, it uses `OpenPDKs` from SkyWaters, GlobalFoundries, and IHP through `ChipIgnite`, `Wafer.Space`, and `IHP`, resepctively.
 
 ### How to Get Started
 
@@ -13,47 +13,51 @@ Follow the instructions in this [link](https://tinytapeout.com/hdl/) to create a
 Tiny Tapeout interfaces with your project using a custom interface shown in the table and code below. Code copied from https://github.com/TinyTapeout/ttihp-verilog-template/blob/main/src/project.v.
 
 
-| User Pads | Tiny Tapeout Framework | Your Design |
-| :-------- | :--------------------- | :---------- |
-| rst_n        | rst_n        | rst_n        |
-| clk          | clk          | clk          |
-|              | ena          | ena          |
-| ui_pad[7:0]  | ui_in[7:0]   | ui_in[7:0]   |
-| uo_pad[7:0]  | uo_out[7:0]  | uo_out[7:0]  |
-| uio_pad[7:0] | uio_in[7:0]  | uio_in[7:0]  |
-|              | uio_out[7:0] | uio_out[7:0] |
-|              | uio_oe[7:0]  | uio_oe[7:0]  |
+=== "Table"
+
+    | User Pads | Tiny Tapeout Framework | Your Design |
+    | :-------- | :--------------------- | :---------- |
+    | rst_n        | rst_n        | rst_n        |
+    | clk          | clk          | clk          |
+    |              | ena          | ena          |
+    | ui_pad[7:0]  | ui_in[7:0]   | ui_in[7:0]   |
+    | uo_pad[7:0]  | uo_out[7:0]  | uo_out[7:0]  |
+    | uio_pad[7:0] | uio_in[7:0]  | uio_in[7:0]  |
+    |              | uio_out[7:0] | uio_out[7:0] |
+    |              | uio_oe[7:0]  | uio_oe[7:0]  |
 
 
-```verilog title="project.v from [here](https://github.com/TinyTapeout/ttihp-verilog-template/blob/main/src/project.v)"
-/*
- * Copyright (c) 2024 Your Name
- * SPDX-License-Identifier: Apache-2.0
- */
+=== "File: project.v (https://github.com/TinyTapeout/ttihp-verilog-template/blob/main/src/project.v)"
 
-`default_nettype none
+    ```verilog linenums="1"
+    /*
+    * Copyright (c) 2024 Your Name
+    * SPDX-License-Identifier: Apache-2.0
+    */
 
-module tt_um_example (
-    input  wire [7:0] ui_in,    // Dedicated inputs
-    output wire [7:0] uo_out,   // Dedicated outputs
-    input  wire [7:0] uio_in,   // IOs: Input path
-    output wire [7:0] uio_out,  // IOs: Output path
-    output wire [7:0] uio_oe,   // IOs: Enable path (active high: 0=input, 1=output)
-    input  wire       ena,      // always 1 when the design is powered, so you can ignore it
-    input  wire       clk,      // clock
-    input  wire       rst_n     // reset_n - low to reset
-);
+    `default_nettype none
 
-  // All output pins must be assigned. If not used, assign to 0.
-  assign uo_out  = ui_in + uio_in;  // Example: ou_out is the sum of ui_in and uio_in
-  assign uio_out = 0;
-  assign uio_oe  = 0;
+    module tt_um_example (
+        input  wire [7:0] ui_in,    // Dedicated inputs
+        output wire [7:0] uo_out,   // Dedicated outputs
+        input  wire [7:0] uio_in,   // IOs: Input path
+        output wire [7:0] uio_out,  // IOs: Output path
+        output wire [7:0] uio_oe,   // IOs: Enable path (active high: 0=input, 1=output)
+        input  wire       ena,      // always 1 when the design is powered, so you can ignore it
+        input  wire       clk,      // clock
+        input  wire       rst_n     // reset_n - low to reset
+    );
 
-  // List all unused inputs to prevent warnings
-  wire _unused = &{ena, clk, rst_n, 1'b0};
+    // All output pins must be assigned. If not used, assign to 0.
+    assign uo_out  = ui_in + uio_in;  // Example: ou_out is the sum of ui_in and uio_in
+    assign uio_out = 0;
+    assign uio_oe  = 0;
 
-endmodule
-```
+    // List all unused inputs to prevent warnings
+    wire _unused = &{ena, clk, rst_n, 1'b0};
+
+    endmodule
+    ```
 
 ### Interface Diagram
 
@@ -125,4 +129,46 @@ flowchart LR
   s1_p17 ~~~ s2_p7 --> s1_p17
   s2_p7 ~~~ s1_p17
 
+```
+
+## Your Design
+
+We will use `LibreLane` for the digital flow and the following description of a `scanchain` as our digital design.
+
+```verilog title="scanchain16.v"
+/*
+Autor: Manuel Monge
+Description:
+	Generic Scan Chain (Shift Register and 'valid' register).
+Inputs:
+	sclk: Scan clock
+	sen: enables the parallel load to the second parallel register
+	sdi: Scan chain input
+Outputs:
+	sdo: Scan chain output
+	dout: Parallel data out
+*/
+
+module scanchain16(sclk,sen,sdi,sdo,dout);
+	parameter n=16;//number of bits of the scan chain
+	//inputs
+	input sclk,sen,sdi;
+	//outputs
+	output sdo;
+	output [n-1:0] dout;
+
+	reg [n-1:0] chain,dout;
+
+	//shift register
+	always@(posedge sclk)
+		chain<={sdi,chain[n-1:1]};
+
+	//Scan chain output
+	assign sdo=chain[0];
+
+	//Load bits to parallel output
+	always@(posedge sclk)
+		if(sen)
+			dout<=chain;
+endmodule
 ```
