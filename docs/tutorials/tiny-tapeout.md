@@ -131,9 +131,91 @@ flowchart LR
 
 ```
 
-## Your Design
+## 2. Requirements
 
-We will use `LibreLane` for the digital flow and the following description of a `scanchain` as our digital design.
+We will use the following [guide](https://tinytapeout.com/guides/local-hardening/) from tiny Tapeout. 
+
+* `Python 3.11` or newer.
+* Updated version of `Docker`.
+* Clone this [repo](https://github.com/TinyTapeout/ttsky25b-factory-test) to `~/projects/tt/factory-test`.
+* Clone Tiny Tapeout supported tools as specified in the guide above.
+
+### Python Environment and Dependencies
+!!! info 
+  I am currently running `Rocky Linux 8.10` which uses `Python 3.6.8`. We have a newer version of Python3 (Python 3.14.0) installed in the system running with `python3.14`. Do not use version 3.14. Use `Python 3.11`.
+
+Create a virtual environment for Tiny Tapeout tool repository, activate it, and install dependencies.
+
+```bash
+$ mkdir ~/projects/tt/ttsetup
+$ python3.11 -m venv ~/projects/tt/ttsetup/venv
+$ source ~/projects/tt/ttsetup/venv/bin/activate
+$ cd ~/projects/tt/factory-test/tt
+$ pip install -r requirements.txt
+```
+
+### Set Up Environment Variables
+
+Set up `PDK_ROOT`, `PDK`, and `LIBRELANE_TAG`.
+
+```bash env-var
+export PDK_ROOT=~/projects/tt/ttsetup/pdk
+export PDK=sky130A
+export LIBRELANE_TAG=3.0.0rc1
+```
+
+Then, source it with:
+
+```bash
+$ source ~/projects/tt/factory-test/env-var
+```
+
+### Install LibreLane
+
+Install `LibreLane` as shown in the TT guide.
+
+
+
+## 3. Harden Your Project
+
+!!! info
+  Hardening a Project: For Tiny Tapeout, hardening a project means going from `HDL` to `GDS`. When you call the hardening function, it uses `LibreLane`, inside a `Docker` container, to synthetize, place, and route your `HDL` design.
+
+Generate `LibreLane` configuration file.
+
+```bash
+$ cd ~/projects/tt/factory-test
+$ ./tt/tt_tool.py --create-user-config
+```
+
+Harden the design.
+
+```bash
+$ ./tt/tt_tool.py --harden
+```
+
+View the design in `OpenRoad`.
+
+```bash
+$ ./tt/tt_tool.py --open-in-openroad
+```
+
+![](images/factory-test-openroad.png)
+
+
+and in `KLayout`.
+
+```bash
+$ ./tt/tt_tool.py --open-in-klayout
+```
+
+![](images/factory-test-klayout.png)
+
+
+
+## 4. Your Design
+
+We will duplicate the current `factory-test` project and replicate the flow with a `scanchain` as our digital design.
 
 ```verilog title="scanchain16.v"
 /*
