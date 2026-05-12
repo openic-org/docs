@@ -25,6 +25,7 @@ nav:
   - Tutorials:
     - tutorials/index.md
     - Xschem with Pcells: tutorials/xschem-pcell.md
+    - Working with Tiny Tapeout: tutorials/tiny-tapeout.md
 
 # Repository
 repo_name: openic-org/docs

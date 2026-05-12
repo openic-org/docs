@@ -18,6 +18,12 @@ OpenIC is a new organization focusing on Research & Development (R&D) of Integra
 
     Coming soon.
 
+-   :material-book:{ .lg .middle } [**Tutorials**](./tutorials/index.md)
+
+    ---
+
+    ASIC-related Tutorials.
+
 </div>
 
 ## Contact
