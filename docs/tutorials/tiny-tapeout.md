@@ -77,6 +77,11 @@ flowchart LR
       s1_p3[" "]
       s1_p4[" "]
       s1_p5[" "]
+      style s1_p0 width:30,x:-15
+      style s1_p1 width:30,x:-15
+      style s1_p3 width:30,x:-15
+      style s1_p4 width:30,x:-15
+      style s1_p5 width:30,x:-15
     end
     subgraph s11["Signals"]
       s1_p10["rest_n"]
@@ -141,12 +146,12 @@ We will use the following [guide](https://tinytapeout.com/guides/local-hardening
 * Clone Tiny Tapeout supported tools as specified in the guide above.
 
 ### Python Environment and Dependencies
-!!! info 
-  I am currently running `Rocky Linux 8.10` which uses `Python 3.6.8`. We have a newer version of Python3 (Python 3.14.0) installed in the system running with `python3.14`. Do not use version 3.14. Use `Python 3.11`.
+!!! note 
+    I am currently running `Rocky Linux 8.10` which uses `Python 3.6.8`. We have newer versions of Python3 installed in the system. I tried with version 3.14 but didn't work. Use `Python 3.11`.
 
 Create a virtual environment for Tiny Tapeout tool repository, activate it, and install dependencies.
 
-```bash
+``` bash
 $ mkdir ~/projects/tt/ttsetup
 $ python3.11 -m venv ~/projects/tt/ttsetup/venv
 $ source ~/projects/tt/ttsetup/venv/bin/activate
@@ -158,7 +163,7 @@ $ pip install -r requirements.txt
 
 Set up `PDK_ROOT`, `PDK`, and `LIBRELANE_TAG`.
 
-```bash env-var
+``` bash title="env-var"
 export PDK_ROOT=~/projects/tt/ttsetup/pdk
 export PDK=sky130A
 export LIBRELANE_TAG=3.0.0rc1
@@ -166,7 +171,7 @@ export LIBRELANE_TAG=3.0.0rc1
 
 Then, source it with:
 
-```bash
+``` bash
 $ source ~/projects/tt/factory-test/env-var
 ```
 
@@ -179,24 +184,24 @@ Install `LibreLane` as shown in the TT guide.
 ## 3. Harden Your Project
 
 !!! info
-  Hardening a Project: For Tiny Tapeout, hardening a project means going from `HDL` to `GDS`. When you call the hardening function, it uses `LibreLane`, inside a `Docker` container, to synthetize, place, and route your `HDL` design.
+    **Hardening a Project:** For Tiny Tapeout, hardening a project means going from `HDL` to `GDS`. When you call the hardening function, it uses `LibreLane`, inside a `Docker` container, to synthetize, place, and route your `HDL` design.
 
 Generate `LibreLane` configuration file.
 
-```bash
+``` bash
 $ cd ~/projects/tt/factory-test
 $ ./tt/tt_tool.py --create-user-config
 ```
 
 Harden the design.
 
-```bash
+``` bash
 $ ./tt/tt_tool.py --harden
 ```
 
 View the design in `OpenRoad`.
 
-```bash
+``` bash
 $ ./tt/tt_tool.py --open-in-openroad
 ```
 
@@ -205,7 +210,7 @@ $ ./tt/tt_tool.py --open-in-openroad
 
 and in `KLayout`.
 
-```bash
+``` bash
 $ ./tt/tt_tool.py --open-in-klayout
 ```
 
@@ -217,7 +222,7 @@ $ ./tt/tt_tool.py --open-in-klayout
 
 We will duplicate the current `factory-test` project and replicate the flow with a `scanchain` as our digital design.
 
-```verilog title="scanchain16.v"
+``` verilog title="scanchain16.v"
 /*
 Autor: Manuel Monge
 Description:
