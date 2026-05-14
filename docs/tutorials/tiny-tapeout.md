@@ -42,7 +42,7 @@ Press the `Use this template` button and create a new repository in your `GitHub
 
 
 
-## 3. The Tiny Tapeout Interface with Your Project
+## 3. The Tiny Tapeout Interface
 
 Tiny Tapeout interfaces with your project using a custom interface shown in the table and code below. Code copied from https://github.com/TinyTapeout/ttihp-verilog-template/blob/main/src/project.v.
 
@@ -175,186 +175,193 @@ flowchart LR
 
 ### Repository
 
-1. We have cloned the template repository [here](https://github.com/manuel-monge/tt2606). You can create your own repository by going to the [template repository](https://github.com/TinyTapeout/ttgf-verilog-template), pressing the `Use this template` button, and creating a new repository in your `GitHub` account. Make the repository `Public`.
+1\. We have cloned the template repository [here](https://github.com/manuel-monge/tt2606). You can create your own repository by going to the [template repository](https://github.com/TinyTapeout/ttgf-verilog-template), pressing the `Use this template` button, and creating a new repository in your `GitHub` account. Make the repository `Public`.
 
-2. Enable `GitHub Actions` by following the instructions in the `README.md` file in the repository.
+``` bash
+$ cd [your-projects-directory]
+$ git clone https://github.com/manuel-monge/tt2606.git
+```
+
+2\. Enable `GitHub Actions` by following the instructions in the `README.md` file in the repository.
 
 ### Design Files
 
-3. We will use the design below in this tutorial. Add this Verilog file under `src` and fill the metadata in the `info.yaml`.
+3\. We will use the design below in this tutorial. Add this Verilog file under `src` and fill the metadata in the `info.yaml`.
 
-``` verilog title="tt_top.v"
+=== "tt_top.v"
 
-/*******************************************************************
-Autor: Manuel Monge
-Description:
-    Top-level file for a Tiny Tapeout Project.
-Copyright (c) 2026 Manuel Monge
-SPDX-License-Identifier: Apache-2.0
-*******************************************************************/
+    ``` verilog
+    /*******************************************************************
+    Autor: Manuel Monge
+    Description:
+        Top-level file for a Tiny Tapeout Project.
+    Copyright (c) 2026 Manuel Monge
+    SPDX-License-Identifier: Apache-2.0
+    *******************************************************************/
 
-`default_nettype none
+    `default_nettype none
 
-module tt_top (
-    input  wire [7:0] ui_in,    // Dedicated inputs
-    output wire [7:0] uo_out,   // Dedicated outputs
-    input  wire [7:0] uio_in,   // IOs: Input path
-    output wire [7:0] uio_out,  // IOs: Output path
-    output wire [7:0] uio_oe,   // IOs: Enable path (active high: 0=input, 1=output)
-    input  wire       ena,      // always 1 when the design is powered, so you can ignore it
-    input  wire       clk,      // clock
-    input  wire       rst_n     // reset_n - low to reset
-);
-
-    // *****************************************************************
-    // BEGIN: Description of your design
-    // *****************************************************************
-    //inputs
-    wire sclk,sen,sdi;
-    //outputs
-    wire sdo;
-    wire [15:0] dout;
-
-    scanchain16 #(.n(16)) scanchain0 (
-        .sclk   (sclk),
-        .sen    (sen),
-        .sdi    (sdi),
-        .sdo    (sdo),
-        .dout   (dout)
+    module tt_top (
+        input  wire [7:0] ui_in,    // Dedicated inputs
+        output wire [7:0] uo_out,   // Dedicated outputs
+        input  wire [7:0] uio_in,   // IOs: Input path
+        output wire [7:0] uio_out,  // IOs: Output path
+        output wire [7:0] uio_oe,   // IOs: Enable path (active high: 0=input, 1=output)
+        input  wire       ena,      // always 1 when the design is powered, so you can ignore it
+        input  wire       clk,      // clock
+        input  wire       rst_n     // reset_n - low to reset
     );
 
-    // Pin Mapping
-    assign sclk = clk;
-    assign sen = ui_in[0];
-    assign sdi = ui_in[1];
-    assign sdo = uo_out[0];
+        // *****************************************************************
+        // BEGIN: Description of your design
+        // *****************************************************************
+        //inputs
+        wire sclk,sen,sdi;
+        //outputs
+        wire sdo;
+        wire [15:0] dout;
 
-    // *****************************************************************
-    // END: Description of your design
-    // *****************************************************************
+        scanchain16 #(.n(16)) scanchain0 (
+            .sclk   (sclk),
+            .sen    (sen),
+            .sdi    (sdi),
+            .sdo    (sdo),
+            .dout   (dout)
+        );
 
-    // *****************************************************************
-    // BEGIN: Unused inputs and outputs
-    // *****************************************************************
+        // Pin Mapping
+        assign sclk = clk;
+        assign sen = ui_in[0];
+        assign sdi = ui_in[1];
+        assign sdo = uo_out[0];
 
-    // All output pins must be assigned. If not used, assign to 0.
-    assign uo_out[7:1] = 0;
-    assign uio_out = 0;
-    assign uio_oe  = 0;
+        // *****************************************************************
+        // END: Description of your design
+        // *****************************************************************
 
-    // List all unused inputs to prevent warnings
-    wire _unused = &{ena, rst_n, ui_in[7:2], uio_in, 1'b0};
+        // *****************************************************************
+        // BEGIN: Unused inputs and outputs
+        // *****************************************************************
 
-    // *****************************************************************
-    // END: Unused inputs and outputs
-    // *****************************************************************
+        // All output pins must be assigned. If not used, assign to 0.
+        assign uo_out[7:1] = 0;
+        assign uio_out = 0;
+        assign uio_oe  = 0;
 
-endmodule
+        // List all unused inputs to prevent warnings
+        wire _unused = &{ena, rst_n, ui_in[7:2], uio_in, 1'b0};
 
+        // *****************************************************************
+        // END: Unused inputs and outputs
+        // *****************************************************************
 
-/*******************************************************************
-Autor: Manuel Monge
-Description:
-    Generic Scan Chain (Shift Register and 'valid' register).
-Inputs:
-    sclk: Scan clock
-    sen: enables the parallel load to the second parallel register
-    sdi: Scan chain input (MSB First)
-Outputs:
-    sdo: Scan chain output
-    dout: Parallel data out
-*******************************************************************/
-
-module scanchain16(sclk,sen,sdi,sdo,dout);
-    parameter n=16;//number of bits of the scan chain
-    //inputs
-    input sclk,sen,sdi;
-    //outputs
-    output sdo;
-    output [n-1:0] dout;
-
-    reg [n-1:0] chain,dout;
-
-    //shift register
-    always@(posedge sclk)
-        chain<={chain[n-2:0],sdi};
-
-    //Scan chain output
-    assign sdo=chain[n-1];
-
-    //Load bits to parallel output
-    always@(posedge sclk)
-        if(sen)
-            dout<=chain;
-endmodule
-```
+    endmodule
 
 
-``` yaml title="info.yaml"
-# Tiny Tapeout project information
-project:
-  title:        ""      # Project title
-  author:       "Manuel Monge"      # Your name
-  discord:      "manuelmonge85"      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description:  ""      # One line description of what your project does
-  language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
-  clock_hz:     50000000  # Clock frequency in Hz (or 0 if not applicable)
+    /*******************************************************************
+    Autor: Manuel Monge
+    Description:
+        Generic Scan Chain (Shift Register and 'valid' register).
+    Inputs:
+        sclk: Scan clock
+        sen: enables the parallel load to the second parallel register
+        sdi: Scan chain input (MSB First)
+    Outputs:
+        sdo: Scan chain output
+        dout: Parallel data out
+    *******************************************************************/
 
-  # How many tiles your design occupies? A single tile is about 340x160 uM.
-  tiles: "1x1"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 3x4 or 4x4
+    module scanchain16(sclk,sen,sdi,sdo,dout);
+        parameter n=16;//number of bits of the scan chain
+        //inputs
+        input sclk,sen,sdi;
+        //outputs
+        output sdo;
+        output [n-1:0] dout;
 
-  # Your top module name must start with "tt_um_". Make it unique by including your github username:
-  top_module:  "tt_top"
+        reg [n-1:0] chain,dout;
 
-  # List your project's source files here.
-  # Source files must be in ./src and you must list each source file separately, one per line.
-  # Don't forget to also update `PROJECT_SOURCES` in test/Makefile.
-  source_files:
-    - "tt_top.v"
+        //shift register
+        always@(posedge sclk)
+            chain<={chain[n-2:0],sdi};
 
-# The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
-# This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
-pinout:
-  # Inputs
-  ui[0]: "sen"
-  ui[1]: "sdi"
-  ui[2]: ""
-  ui[3]: ""
-  ui[4]: ""
-  ui[5]: ""
-  ui[6]: ""
-  ui[7]: ""
+        //Scan chain output
+        assign sdo=chain[n-1];
 
-  # Outputs
-  uo[0]: "sdo"
-  uo[1]: ""
-  uo[2]: ""
-  uo[3]: ""
-  uo[4]: ""
-  uo[5]: ""
-  uo[6]: ""
-  uo[7]: ""
+        //Load bits to parallel output
+        always@(posedge sclk)
+            if(sen)
+                dout<=chain;
+    endmodule
+    ```
 
-  # Bidirectional pins
-  uio[0]: ""
-  uio[1]: ""
-  uio[2]: ""
-  uio[3]: ""
-  uio[4]: ""
-  uio[5]: ""
-  uio[6]: ""
-  uio[7]: ""
+=== "info.yaml"
 
-# Do not change!
-yaml_version: 6
-```
+    ``` yaml
+    # Tiny Tapeout project information
+    project:
+      title:        ""      # Project title
+      author:       "Manuel Monge"      # Your name
+      discord:      "manuelmonge85"      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
+      description:  ""      # One line description of what your project does
+      language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
+      clock_hz:     50000000  # Clock frequency in Hz (or 0 if not applicable)
+
+      # How many tiles your design occupies? A single tile is about 340x160 uM.
+      tiles: "1x1"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 3x4 or 4x4
+
+      # Your top module name must start with "tt_um_". Make it unique by including your github username:
+      top_module:  "tt_top"
+
+      # List your project's source files here.
+      # Source files must be in ./src and you must list each source file separately, one per line.
+      # Don't forget to also update `PROJECT_SOURCES` in test/Makefile.
+      source_files:
+        - "tt_top.v"
+
+    # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
+    # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
+    pinout:
+      # Inputs
+      ui[0]: "sen"
+      ui[1]: "sdi"
+      ui[2]: ""
+      ui[3]: ""
+      ui[4]: ""
+      ui[5]: ""
+      ui[6]: ""
+      ui[7]: ""
+
+      # Outputs
+      uo[0]: "sdo"
+      uo[1]: ""
+      uo[2]: ""
+      uo[3]: ""
+      uo[4]: ""
+      uo[5]: ""
+      uo[6]: ""
+      uo[7]: ""
+
+      # Bidirectional pins
+      uio[0]: ""
+      uio[1]: ""
+      uio[2]: ""
+      uio[3]: ""
+      uio[4]: ""
+      uio[5]: ""
+      uio[6]: ""
+      uio[7]: ""
+
+    # Do not change!
+    yaml_version: 6
+    ```
 
 
 ### Simulation/Testing Files
 
 Tiny Tapeout uses `cocotb` for testing. `Cocotb` allows you to use `Python` to write your testbench and run your simulations.
 
-4. Add the testbench file shown below under `test`. Notice how your design is instantiated as `dut` (device-under-test). Code taken from [https://github.com/TinyTapeout/ttihp-verilog-template/blob/main/test/tb.v](https://github.com/TinyTapeout/ttihp-verilog-template/blob/main/test/tb.v).
+4\. Add the testbench file shown below under `test`. Notice how your design is instantiated as `dut` (device-under-test). Code taken from [https://github.com/TinyTapeout/ttihp-verilog-template/blob/main/test/tb.v](https://github.com/TinyTapeout/ttihp-verilog-template/blob/main/test/tb.v).
 
 ``` verilog title="tb.v [Link to source above]"
 `default_nettype none
@@ -399,32 +406,48 @@ endmodule
 
 ### Documentation
 
-5. Add some documentation about your project in `info.md` under `docs`.
+5\. Add some documentation about your project in `info.md` under `docs`.
 
 
 
-## 5. Local Testing
+## 5. Setting Up Local Tools
+
+We will use the following guides: [Local Hardening](https://tinytapeout.com/guides/local-hardening/) and [Testing Your Design](https://tinytapeout.com/hdl/testing/) from tiny Tapeout. 
 
 ### Requirements
 
-We will use the following [guide](https://tinytapeout.com/guides/local-hardening/) from tiny Tapeout. 
+* `Python 3.11` or newer. I am currently using `Pthon 3.12.3`.
 
-* `Python 3.11` or newer.
-* Updated version of `Docker`.
-* Clone this [repo](https://github.com/TinyTapeout/ttsky25b-factory-test) to `~/projects/tt/factory-test`.
+``` bash
+# Check you python version
+$ python3 --version
+```
+
+* Updated version of `Docker`. I am currently using `Docker 29.4.3`.
+
+``` bash
+# Check you python version
+$ dcoker --version
+```
+
 * Clone Tiny Tapeout supported tools as specified in the guide above.
+
+``` bash
+$ cd [your-project-directory]/tt2606
+$ git clone https://github.com/TinyTapeout/tt-support-tools tt
+```
 
 ### Python Environment and Dependencies
 !!! note 
-    I am currently running `Rocky Linux 8.10` which uses `Python 3.6.8`. We have newer versions of Python3 installed in the system. I tried with version 3.14 but didn't work. Use `Python 3.11`.
+    We have used Python versions `3.11` and `3.12.3` successfully. Version `3.14` didn't work.
 
 Create a virtual environment for Tiny Tapeout tool repository, activate it, and install dependencies.
 
 ``` bash
-$ mkdir ~/projects/tt/ttsetup
-$ python3.11 -m venv ~/projects/tt/ttsetup/venv
-$ source ~/projects/tt/ttsetup/venv/bin/activate
-$ cd ~/projects/tt/factory-test/tt
+$ mkdir ~/setups/ttsetup
+$ python3 -m venv ~/setups/ttsetup/venv
+$ source ~/setups/ttsetup/venv/bin/activate
+$ cd [your-project-directory]/tt2606/tt
 $ pip install -r requirements.txt
 ```
 
@@ -432,8 +455,13 @@ $ pip install -r requirements.txt
 
 Set up `PDK_ROOT`, `PDK`, and `LIBRELANE_TAG`.
 
+``` bash
+$ cd [your-project-directory]/tt2606
+$ vi env-var
+```
+
 ``` bash title="env-var"
-export PDK_ROOT=~/projects/tt/ttsetup/pdk
+export PDK_ROOT=~/setups/ttsetup/pdk
 export PDK=sky130A
 export LIBRELANE_TAG=3.0.0rc1
 ```
@@ -441,14 +469,16 @@ export LIBRELANE_TAG=3.0.0rc1
 Then, source it with:
 
 ``` bash
-$ source ~/projects/tt/factory-test/env-var
+$ source env-var
 ```
 
 ### Install LibreLane
 
 Install `LibreLane` as shown in the TT guide.
 
-
+``` bash
+$ pip install librelane==$LIBRELANE_TAG
+```
 
 ## 3. Harden Your Project
 
