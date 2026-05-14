@@ -1,0 +1,49 @@
+Iris-128 Headstages Documentation
+Copyright 2025 Manuel Monge and Emma Jacobs
+
+These headstages include source developed at the Deku Lab (https://deku.uoregon.edu/) and OpenIC (https://openic.org/).
+
+THIRD-PARTY COMPONENTS
+This project includes third-party component models (schematic symbols, PCB footprints, and/or 3D models) obtained from their respective manufacturers. These materials are included solely for design reference and compatibility, and are not covered by this project’s open-source license (e.g., Apache v2.0). Each manufacturer retains ownership of its respective intellectual property. 
+
+https://docs.openic.org/iris-128/iris-128b and https://docs.openic.org/iris-128/iris-128s
+Samtec SEAM8 series connector, obtained from Samtec Inc.
+Samtec TLW series connector, obtained from Samtec Inc.
+Samtec SLW series connector, obtained from Samtec Inc.
+Samtec FTSH series connector, obtained from Samtec Inc.
+These models are the intellectual property of Samtec Inc. and are used solely for the purpose of designing a PCB that includes Samtec components. The Samtec-provided CAD data (including, but not limited to, schematic symbols, PCB footprints, and 3D models):
+1.	Remains the property of Samtec Inc.
+2.	Is not licensed under this project’s open-source license.
+3.	May not be redistributed, modified, or sublicensed except under Samtec’s own terms.
+4.	Is included or referenced here only to demonstrate compatibility with Samtec hardware.
+For details, see Samtec’s Terms and Conditions and Legal Notices: https://www.samtec.com/legal
+
+Omnetics PZN A79633-001 connector, obtained from Omnetics Connector Corporation.
+Omnetics PZN A79623-001 connector, obtained from Omnetics Connector Corporation.
+Omnetics NPD A79024-001 connector, obtained from Omnetics Connector Corporation.
+These models are proprietary to Omnetics and are used solely to design hardware that includes Omnetics components.
+1.	Remains the property of Omnetics Connector Corporation.
+2.	Is not licensed under this project’s open-source license.
+3.	May not be redistributed, modified, or sublicensed except under Omnetics’ own terms.
+For details, see Omnetics’ Terms of Use and Legal Notices:
+https://www.omnetics.com/terms
+
+Intan Technologies RHS2000 series integrated circuits, obtained from Intan Technologies LLC.
+These materials are proprietary to Intan Technologies and provided for the purpose of designing circuits that include Intan devices.
+1.	Remains the property of Intan Technologies LLC.
+2.	Is not licensed under this project’s open-source license.
+3.	May not be redistributed, modified, or sublicensed except under Intan’s own terms.
+
+Molex Nano-Pitch I/O connector, obtained from Molex LLC.
+These materials are proprietary to Molex and are included solely for the purpose of designing hardware compatible with Molex connectors.
+1.	Remains the property of Molex LLC.
+2.	Is not licensed under this project’s open-source license.
+3.	May not be redistributed, modified, or sublicensed except under Molex’s own terms.
+For details, see Molex’s Terms and Conditions and Legal Notices: https://www.molex.com/legal
+
+Bourns 7914 series sealed key switch, obtained from Bourns, Inc.
+These materials are proprietary to Bourns and are included solely for the purpose of designing hardware compatible with Bourns switches.
+1.	Remains the property of Bourns, Inc.
+2.	Is not licensed under this project’s open-source license.
+3.	May not be redistributed, modified, or sublicensed except under Bourns’s own terms.
+For details, see Bourns’s Legal Disclaimers, Terms and Polices: https://www.bourns.com/legal/disclaimers-terms-and-policies

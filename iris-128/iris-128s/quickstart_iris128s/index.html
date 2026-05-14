@@ -1,0 +1,3226 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Manuel Monge">
+      
+      
+        <link rel="canonical" href="https://openic.org/iris-128/iris-128s/quickstart_iris128s/">
+      
+      
+        <link rel="prev" href="../adapter_iris128s/">
+      
+      
+        <link rel="next" href="../../thin-film/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Quickstart - OpenIC Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#iris-128s-quickstart-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="OpenIC Documentation" class="md-header__button md-logo" aria-label="OpenIC Documentation" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OpenIC Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Quickstart
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/openic-org/docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    openic-org/docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="OpenIC Documentation" class="md-nav__button md-logo" aria-label="OpenIC Documentation" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    OpenIC Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/openic-org/docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    openic-org/docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Iris 128
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Iris 128
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../iris-128b/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Iris 128B
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Iris 128B
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iris-128b/headstage_iris128B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Headstage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iris-128b/adapter_iris128B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Adapter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iris-128b/quickstart_iris128B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Iris 128S
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Iris 128S
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../headstage_iris128s/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Headstage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adapter_iris128s/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Adapter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-system-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. System Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-hardware-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Hardware Components
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Hardware Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-iris-128s-headstage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Iris-128S Headstage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-electrode-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Electrode Mapping
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2. Electrode Mapping">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analog-switches-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analog Switches State
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recording-electrodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recording Electrodes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stimulatingrecording-electrodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stimulating/Recording Electrodes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-36-wire-custom-cable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. 36-Wire Custom Cable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-adapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4. Adapter
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-programming-the-adapter-mcu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Programming the Adapter MCU
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Programming the Adapter MCU">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#building-programming-the-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building &amp; Programming the Project
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Building &amp; Programming the Project">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quick-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Summary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changing-the-state-of-the-switches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changing the State of the Switches
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Changing the State of the Switches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Code
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#further-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further Development
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-hardware-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Hardware Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Hardware Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-prepare-for-surgery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — Prepare for Surgery
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-connect-to-adapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Connect to Adapter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-ground-and-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 — Ground and Reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-software-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Software Setup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-power-up-sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Power-Up Sequence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-bench-animal-setup-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Bench &amp; Animal Setup Checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-performance-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Performance Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-stimulation-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Stimulation Parameters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-additional-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Additional Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-reference-setup-recipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Reference Setup Recipe
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../thin-film/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Thin-Film
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Thin-Film
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    License
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LICENSE.txt" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LICENSE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NOTICE.txt" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NOTICE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../tutorials/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tutorials
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/xschem-pcell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Xschem with Pcells
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/tiny-tapeout/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Working with Tiny Tapeout
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-system-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. System Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-hardware-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Hardware Components
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Hardware Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-iris-128s-headstage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Iris-128S Headstage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-electrode-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Electrode Mapping
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2. Electrode Mapping">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analog-switches-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analog Switches State
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recording-electrodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recording Electrodes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stimulatingrecording-electrodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stimulating/Recording Electrodes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-36-wire-custom-cable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. 36-Wire Custom Cable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-adapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4. Adapter
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-programming-the-adapter-mcu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Programming the Adapter MCU
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Programming the Adapter MCU">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#building-programming-the-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building &amp; Programming the Project
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Building &amp; Programming the Project">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quick-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Summary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changing-the-state-of-the-switches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changing the State of the Switches
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Changing the State of the Switches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Code
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#further-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further Development
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-hardware-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Hardware Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Hardware Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-prepare-for-surgery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — Prepare for Surgery
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-connect-to-adapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Connect to Adapter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-ground-and-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 — Ground and Reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-software-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Software Setup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-power-up-sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Power-Up Sequence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-bench-animal-setup-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Bench &amp; Animal Setup Checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-performance-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Performance Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-stimulation-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Stimulation Parameters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-additional-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Additional Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-reference-setup-recipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Reference Setup Recipe
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Iris 128
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Iris 128S
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="iris-128s-quickstart-guide">Iris-128S Quickstart Guide</h1>
+<div class="admonition info paper">
+<p class="admonition-title">Info</p>
+<p>Open-Source 128-Channel Headstage for Neural Recording and Stimulation
+<em>(Based on Jacobs et al., 2025 – “Iris 128x: Open-Source 128-Channel Headstages for Neural Stimulation and Recording”)</em></p>
+</div>
+<hr />
+<h2 id="1-system-overview">1. System Overview</h2>
+<p>The <code>Iris-128S</code> neural interface consists of a <code>headstage</code> and an <code>adapter</code>, and provides with 128-channel, selective bidirectional recording and stimulation capability using two <code>RHD2164</code> and one <code>RHS2116</code> Intan integrated amplifier and amplifier/stimulation chips. It interfaces with <em>thin-film microelectrode arrays</em> through a Samtec <code>SEAF8</code> connector and communicates with an Intan RHD Controller and a RHS Controller via low-voltage differential signaling (LVDS) through Intan Omnetics cables. The <code>headstage</code> and <code>adapter</code> are connected with a <code>36-wire custom cable</code>. A microcontroller (MCU) in the <code>adapter</code> can be programmed with a MCU-compatible programmer.</p>
+<p>The architecture of <code>Iris-128S</code> neural interface is shown in the figure below.</p>
+<pre class="mermaid"><code>graph LR
+    c0("128-Ch
+        Electrode
+        Array")
+    c1("`**Iris-128S
+        Headstage**`")
+    c2("`**Iris-128S
+        Adapter**`")
+    c3("Intan RHD
+        Controller")
+    c4("Intan RHS
+        Controller")
+    c5("Programmer")
+    c6("Computer")
+    c0 &lt;--&gt; c1
+    c1 &lt;-- 36-Wire
+           Custom Cable --&gt; c2
+    c2 &lt;-- 12-Pin
+           Intan Cable --&gt; c3
+    c2 &lt;-- 16-Pin
+           Intan Cable --&gt; c4
+    c2 &lt;-- 10-Pin
+           Flat Cable --&gt; c5
+    c3 &lt;--&gt; c6
+    c4 &lt;--&gt; c6
+    c5 &lt;--&gt; c6</code></pre>
+<p style="text-align:center"><i><b>Figure 1.</b> System Architecture of Iris-128S.</i></p>
+
+<p><br></p>
+<hr />
+<h2 id="2-hardware-components">2. Hardware Components</h2>
+<p>List of required components:</p>
+<ul>
+<li>Iris-128S Headstage</li>
+<li>Iris-128S Adapter</li>
+<li>36-Wire Custom Cable</li>
+<li>160-pin Samtec SEAF8 connector</li>
+<li>Electrode Array</li>
+<li>Intan RHD Controller</li>
+<li>Intan RHS Controller</li>
+<li>12-Pin Intan Cable</li>
+<li>16-Pin Intan Cable</li>
+<li>10-Pin Ribbon Cable</li>
+<li>STLINK-V3 Programmer</li>
+<li>Computer</li>
+</ul>
+<p><br></p>
+<h3 id="21-iris-128s-headstage">2.1. Iris-128S Headstage</h3>
+<p>The figure below shows the different components of the headstage.</p>
+<p><img alt="" src="../../images/iris-128s-headstage-marked-top.jpg" /></p>
+<p><img alt="" src="../../images/iris-128s-headstage-marked-bottom.jpg" /></p>
+<p style="text-align:center"><i><b>Figure 2.</b> Photos of the Headstage top and bottom sides indicating its main components.</i></p>
+
+<p><br></p>
+<p>The table below shows the main components of the Iris-128S headstage. Note the component correspondance with the previous figure.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Component</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><code>RHD2164</code></td>
+<td style="text-align: left;">64-ch neural recording amplifier chip, Intan.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RHS2116</code></td>
+<td style="text-align: left;">16-ch neural recording/stimulation chip, Intan.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>ADGS5414</code></td>
+<td style="text-align: left;">Octal high-voltage analog switch, Analog Devices.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>SEAM8-20</code></td>
+<td style="text-align: left;">160-pin high-density connector, Samtec.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>A79024-001</code></td>
+<td style="text-align: left;">36-pin high-density connector, Omnetics.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R14</code></td>
+<td style="text-align: left;">Unpopulated resistor which can be used to connect <code>REF</code> and <code>GND</code>.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>REF</code></td>
+<td style="text-align: left;">Reference pin.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>GND</code></td>
+<td style="text-align: left;">GND pin.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>VDD1</code></td>
+<td style="text-align: left;">+3.3 V Supply for <code>RHD2164</code> chips, testpoint.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>VDD2</code></td>
+<td style="text-align: left;">+3.3 V Supply for <code>RHS2116</code> chip, testpoint.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>VDD3</code></td>
+<td style="text-align: left;">+3 V Supply to <code>ADGS5414</code> chip, testpoint.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>VDD_SW</code></td>
+<td style="text-align: left;">+9 V Supply for <code>ADGS5414</code> chip, testpoint.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>VSS_SW</code></td>
+<td style="text-align: left;">-9 V Supply for <code>ADGS5414</code> chip, testpoint.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>VSTIMp</code></td>
+<td style="text-align: left;">+7 V Supply for <code>RHS2116</code> chip, testpoint.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>VSTIMm</code></td>
+<td style="text-align: left;">-7 V Supply for <code>RHS2116</code> chip, testpoint.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="22-electrode-mapping">2.2. Electrode Mapping</h3>
+<p>The figure below shows the mapping between the <em>Electrode Array Connector, RHD2164 recording chips, and RHS2116 stim/record chip</em>.</p>
+<p><img alt="" src="../../images/iris-128s-electrode-mapping.jpg" /></p>
+<p style="text-align:center"><i><b>Figure 3.</b> Electrode array connector mapping.</i></p>
+
+<p><br></p>
+<p>The figure below shows the daisy-chain SPI connection for the <code>ADGS5414</code> analog switches.</p>
+<pre class="mermaid"><code>graph LR
+
+    subgraph ADGS5414-U8
+        direction LR
+        SDI8 --&gt; SDO8
+    end
+    subgraph ADGS5414-U7
+        direction LR
+        SDI7 --&gt; SDO7
+    end
+    subgraph ADGS5414-U1
+        direction LR
+        SDI1 --&gt; SDO1
+    end
+
+    MOSI_SW --&gt; SDI8
+    SDO8 --&gt; SDI7
+    SDO7 -..-&gt; SDI1
+    SDO1 --&gt; MISO_SW</code></pre>
+<p style="text-align:center"><i><b>Figure 4.</b> Analog switches daisy-chain SPI connection.</i></p>
+
+<p><br></p>
+<h4 id="analog-switches-state">Analog Switches State</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Analog Switch</th>
+<th style="text-align: center;"><code>SWX_EN</code></th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><code>UX-Y</code></td>
+<td style="text-align: center;">0<br>1</td>
+<td style="text-align: left;">Open<br>Closed</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><code>X</code>,<code>Y</code>= {1,..,8}</p>
+</blockquote>
+<p><br></p>
+<h4 id="recording-electrodes">Recording Electrodes</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Electrode Array<br>Connector Pin</th>
+<th style="text-align: center;">RHD2164<br>Pin</th>
+<th style="text-align: center;">Electrode Array<br>Connector Pin</th>
+<th style="text-align: center;">RHD2164<br>Pin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><code>R0</code></td>
+<td style="text-align: center;">REC0IN1</td>
+<td style="text-align: center;"><code>R48</code></td>
+<td style="text-align: center;">REC0IN4</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R1</code></td>
+<td style="text-align: center;">REC0IN54</td>
+<td style="text-align: center;"><code>R49</code></td>
+<td style="text-align: center;">REC0IN6</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R2</code></td>
+<td style="text-align: center;">REC0IN62</td>
+<td style="text-align: center;"><code>R50</code></td>
+<td style="text-align: center;">REC0IN26</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R3</code></td>
+<td style="text-align: center;">REC0IN60</td>
+<td style="text-align: center;"><code>R51</code></td>
+<td style="text-align: center;">REC0IN31</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R4</code></td>
+<td style="text-align: center;">REC0IN58</td>
+<td style="text-align: center;"><code>R52</code></td>
+<td style="text-align: center;">REC0IN33</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R5</code></td>
+<td style="text-align: center;">REC0IN56</td>
+<td style="text-align: center;"><code>R53</code></td>
+<td style="text-align: center;">REC0IN22</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R6</code></td>
+<td style="text-align: center;">REC0IN3</td>
+<td style="text-align: center;"><code>R54</code></td>
+<td style="text-align: center;">REC0IN13</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R7</code></td>
+<td style="text-align: center;">REC0IN29</td>
+<td style="text-align: center;"><code>R55</code></td>
+<td style="text-align: center;">REC0IN15</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R8</code></td>
+<td style="text-align: center;">REC0IN46</td>
+<td style="text-align: center;"><code>R56</code></td>
+<td style="text-align: center;">REC0IN14</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R9</code></td>
+<td style="text-align: center;">REC0IN48</td>
+<td style="text-align: center;"><code>R57</code></td>
+<td style="text-align: center;">REC0IN18</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R10</code></td>
+<td style="text-align: center;">REC0IN52</td>
+<td style="text-align: center;"><code>R58</code></td>
+<td style="text-align: center;">REC0IN20</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R11</code></td>
+<td style="text-align: center;">REC0IN50</td>
+<td style="text-align: center;"><code>R59</code></td>
+<td style="text-align: center;">REC0IN24</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R12</code></td>
+<td style="text-align: center;">REC0IN5</td>
+<td style="text-align: center;"><code>R60</code></td>
+<td style="text-align: center;">REC1IN46</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R13</code></td>
+<td style="text-align: center;">REC0IN27</td>
+<td style="text-align: center;"><code>R61</code></td>
+<td style="text-align: center;">REC0IN12</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R14</code></td>
+<td style="text-align: center;">REC0IN59</td>
+<td style="text-align: center;"><code>R62</code></td>
+<td style="text-align: center;">REC0IN17</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R15</code></td>
+<td style="text-align: center;">REC0IN63</td>
+<td style="text-align: center;"><code>R63</code></td>
+<td style="text-align: center;">REC1IN17</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R16</code></td>
+<td style="text-align: center;">REC0IN45</td>
+<td style="text-align: center;"><code>R64</code></td>
+<td style="text-align: center;">REC1IN0</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R17</code></td>
+<td style="text-align: center;">REC0IN47</td>
+<td style="text-align: center;"><code>R65</code></td>
+<td style="text-align: center;">REC1IN16</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R18</code></td>
+<td style="text-align: center;">REC0IN7</td>
+<td style="text-align: center;"><code>R66</code></td>
+<td style="text-align: center;">REC1IN63</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R19</code></td>
+<td style="text-align: center;">REC0IN25</td>
+<td style="text-align: center;"><code>R67</code></td>
+<td style="text-align: center;">REC1IN8</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R20</code></td>
+<td style="text-align: center;">REC0IN51</td>
+<td style="text-align: center;"><code>R68</code></td>
+<td style="text-align: center;">REC0IN21</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R21</code></td>
+<td style="text-align: center;">REC0IN55</td>
+<td style="text-align: center;"><code>R69</code></td>
+<td style="text-align: center;">REC1IN2</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R22</code></td>
+<td style="text-align: center;">REC0IN43</td>
+<td style="text-align: center;"><code>R70</code></td>
+<td style="text-align: center;">REC1IN18</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R23</code></td>
+<td style="text-align: center;">REC0IN61</td>
+<td style="text-align: center;"><code>R71</code></td>
+<td style="text-align: center;">REC1IN4</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R24</code></td>
+<td style="text-align: center;">REC0IN9</td>
+<td style="text-align: center;"><code>R72</code></td>
+<td style="text-align: center;">REC1IN61</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R25</code></td>
+<td style="text-align: center;">REC0IN23</td>
+<td style="text-align: center;"><code>R73</code></td>
+<td style="text-align: center;">REC1IN26</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R26</code></td>
+<td style="text-align: center;">REC0IN40</td>
+<td style="text-align: center;"><code>R74</code></td>
+<td style="text-align: center;">REC0IN19</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R27</code></td>
+<td style="text-align: center;">REC0IN35</td>
+<td style="text-align: center;"><code>R75</code></td>
+<td style="text-align: center;">REC1IN20</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R28</code></td>
+<td style="text-align: center;">REC0IN57</td>
+<td style="text-align: center;"><code>R76</code></td>
+<td style="text-align: center;">REC1IN6</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R29</code></td>
+<td style="text-align: center;">REC0IN41</td>
+<td style="text-align: center;"><code>R77</code></td>
+<td style="text-align: center;">REC1IN22</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R30</code></td>
+<td style="text-align: center;">REC0IN11</td>
+<td style="text-align: center;"><code>R78</code></td>
+<td style="text-align: center;">REC1IN45</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R31</code></td>
+<td style="text-align: center;">REC0IN16</td>
+<td style="text-align: center;"><code>R79</code></td>
+<td style="text-align: center;">REC1IN43</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R32</code></td>
+<td style="text-align: center;">REC0IN30</td>
+<td style="text-align: center;"><code>R80</code></td>
+<td style="text-align: center;">REC1IN53</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R33</code></td>
+<td style="text-align: center;">REC0IN32</td>
+<td style="text-align: center;"><code>R81</code></td>
+<td style="text-align: center;">REC1IN37</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R34</code></td>
+<td style="text-align: center;">REC0IN53</td>
+<td style="text-align: center;"><code>R82</code></td>
+<td style="text-align: center;">REC1IN24</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R35</code></td>
+<td style="text-align: center;">REC0IN39</td>
+<td style="text-align: center;"><code>R83</code></td>
+<td style="text-align: center;">REC1IN10</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R36</code></td>
+<td style="text-align: center;">REC0IN0</td>
+<td style="text-align: center;"><code>R84</code></td>
+<td style="text-align: center;">REC1IN47</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R37</code></td>
+<td style="text-align: center;">REC0IN10</td>
+<td style="text-align: center;"><code>R85</code></td>
+<td style="text-align: center;">REC1IN55</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R38</code></td>
+<td style="text-align: center;">REC0IN36</td>
+<td style="text-align: center;"><code>R86</code></td>
+<td style="text-align: center;">REC1IN41</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R39</code></td>
+<td style="text-align: center;">REC0IN38</td>
+<td style="text-align: center;"><code>R87</code></td>
+<td style="text-align: center;">REC1IN42</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R40</code></td>
+<td style="text-align: center;">REC0IN49</td>
+<td style="text-align: center;"><code>R88</code></td>
+<td style="text-align: center;">REC1IN12</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R41</code></td>
+<td style="text-align: center;">REC0IN37</td>
+<td style="text-align: center;"><code>R89</code></td>
+<td style="text-align: center;">REC1IN28</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R42</code></td>
+<td style="text-align: center;">REC0IN2</td>
+<td style="text-align: center;"><code>R90</code></td>
+<td style="text-align: center;">REC1IN59</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R43</code></td>
+<td style="text-align: center;">REC0IN8</td>
+<td style="text-align: center;"><code>R91</code></td>
+<td style="text-align: center;">REC1IN57</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R44</code></td>
+<td style="text-align: center;">REC0IN28</td>
+<td style="text-align: center;"><code>R92</code></td>
+<td style="text-align: center;">REC1IN51</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R45</code></td>
+<td style="text-align: center;">REC0IN34</td>
+<td style="text-align: center;"><code>R93</code></td>
+<td style="text-align: center;">REC1IN49</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R46</code></td>
+<td style="text-align: center;">REC0IN42</td>
+<td style="text-align: center;"><code>R94</code></td>
+<td style="text-align: center;">REC1IN39</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>R47</code></td>
+<td style="text-align: center;">REC0IN44</td>
+<td style="text-align: center;"><code>R95</code></td>
+<td style="text-align: center;">REC1IN44</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Connections:</em> <code>REC0INX</code> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> <code>U9</code>; <code>REC1INX</code> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> <code>U10</code></p>
+</blockquote>
+<p><br></p>
+<h4 id="stimulatingrecording-electrodes">Stimulating/Recording Electrodes</h4>
+<p><strong>Connected to RHS2116</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Electrode Array<br>Connector Pin</th>
+<th style="text-align: center;">RHS2116<br>Pin</th>
+<th style="text-align: center;">Switch</th>
+<th style="text-align: center;">FW Variable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><code>RS0</code></td>
+<td style="text-align: center;">STIM9</td>
+<td style="text-align: center;">U8-2</td>
+<td style="text-align: center;">sw8[1]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS1</code></td>
+<td style="text-align: center;">STIM9</td>
+<td style="text-align: center;">U8-1</td>
+<td style="text-align: center;">sw8[0]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS2</code></td>
+<td style="text-align: center;">STIM8</td>
+<td style="text-align: center;">U8-3</td>
+<td style="text-align: center;">sw8[2]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS3</code></td>
+<td style="text-align: center;">STIM8</td>
+<td style="text-align: center;">U8-4</td>
+<td style="text-align: center;">sw8[3]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS4</code></td>
+<td style="text-align: center;">STIM11</td>
+<td style="text-align: center;">U8-5</td>
+<td style="text-align: center;">sw8[4]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS5</code></td>
+<td style="text-align: center;">STIM11</td>
+<td style="text-align: center;">U8-6</td>
+<td style="text-align: center;">sw8[5]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS6</code></td>
+<td style="text-align: center;">STIM4</td>
+<td style="text-align: center;">U8-8</td>
+<td style="text-align: center;">sw8[7]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS7</code></td>
+<td style="text-align: center;">STIM4</td>
+<td style="text-align: center;">U8-7</td>
+<td style="text-align: center;">sw8[6]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS8</code></td>
+<td style="text-align: center;">STIM3</td>
+<td style="text-align: center;">U7-2</td>
+<td style="text-align: center;">sw7[1]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS9</code></td>
+<td style="text-align: center;">STIM3</td>
+<td style="text-align: center;">U7-1</td>
+<td style="text-align: center;">sw7[0]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS10</code></td>
+<td style="text-align: center;">STIM0</td>
+<td style="text-align: center;">U7-3</td>
+<td style="text-align: center;">sw7[2]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS11</code></td>
+<td style="text-align: center;">STIM0</td>
+<td style="text-align: center;">U7-4</td>
+<td style="text-align: center;">sw7[3]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS12</code></td>
+<td style="text-align: center;">STIM14</td>
+<td style="text-align: center;">U7-7</td>
+<td style="text-align: center;">sw7[6]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS13</code></td>
+<td style="text-align: center;">STIM12</td>
+<td style="text-align: center;">U7-5</td>
+<td style="text-align: center;">sw7[4]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS14</code></td>
+<td style="text-align: center;">STIM12</td>
+<td style="text-align: center;">U7-6</td>
+<td style="text-align: center;">sw7[5]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS15</code></td>
+<td style="text-align: center;">STIM14</td>
+<td style="text-align: center;">U7-8</td>
+<td style="text-align: center;">sw7[7]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS16</code></td>
+<td style="text-align: center;">STIM15</td>
+<td style="text-align: center;">U2-1</td>
+<td style="text-align: center;">sw2[0]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS17</code></td>
+<td style="text-align: center;">STIM15</td>
+<td style="text-align: center;">U2-2</td>
+<td style="text-align: center;">sw2[1]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS18</code></td>
+<td style="text-align: center;">STIM13</td>
+<td style="text-align: center;">U2-4</td>
+<td style="text-align: center;">sw2[3]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS19</code></td>
+<td style="text-align: center;">STIM13</td>
+<td style="text-align: center;">U2-3</td>
+<td style="text-align: center;">sw2[2]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS20</code></td>
+<td style="text-align: center;">STIM1</td>
+<td style="text-align: center;">U2-6</td>
+<td style="text-align: center;">sw2[5]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS21</code></td>
+<td style="text-align: center;">STIM1</td>
+<td style="text-align: center;">U2-5</td>
+<td style="text-align: center;">sw2[4]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS22</code></td>
+<td style="text-align: center;">STIM5</td>
+<td style="text-align: center;">U2-7</td>
+<td style="text-align: center;">sw2[6]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS23</code></td>
+<td style="text-align: center;">STIM5</td>
+<td style="text-align: center;">U2-8</td>
+<td style="text-align: center;">sw2[7]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS24</code></td>
+<td style="text-align: center;">STIM6</td>
+<td style="text-align: center;">U1-1</td>
+<td style="text-align: center;">sw1[0]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS25</code></td>
+<td style="text-align: center;">STIM6</td>
+<td style="text-align: center;">U1-2</td>
+<td style="text-align: center;">sw1[1]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS26</code></td>
+<td style="text-align: center;">STIM2</td>
+<td style="text-align: center;">U1-4</td>
+<td style="text-align: center;">sw1[3]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS27</code></td>
+<td style="text-align: center;">STIM2</td>
+<td style="text-align: center;">U1-3</td>
+<td style="text-align: center;">sw1[2]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS28</code></td>
+<td style="text-align: center;">STIM7</td>
+<td style="text-align: center;">U1-6</td>
+<td style="text-align: center;">sw1[5]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS29</code></td>
+<td style="text-align: center;">STIM7</td>
+<td style="text-align: center;">U1-5</td>
+<td style="text-align: center;">sw1[4]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS30</code></td>
+<td style="text-align: center;">STIM10</td>
+<td style="text-align: center;">U1-7</td>
+<td style="text-align: center;">sw1[6]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS31</code></td>
+<td style="text-align: center;">STIM10</td>
+<td style="text-align: center;">U1-8</td>
+<td style="text-align: center;">sw1[7]</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Connections:</em> <code>STIMX</code> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> <code>U12</code></p>
+</blockquote>
+<p><br></p>
+<p><strong>Connected to RHD2164</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Electrode Array<br>Connector Pin</th>
+<th style="text-align: center;">RHD2164<br>Pin</th>
+<th style="text-align: center;">Switch</th>
+<th style="text-align: center;">FW Variable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><code>RS0</code></td>
+<td style="text-align: center;">REC1IN60</td>
+<td style="text-align: center;">U5-7</td>
+<td style="text-align: center;">sw5[6]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS1</code></td>
+<td style="text-align: center;">REC1IN62</td>
+<td style="text-align: center;">U5-8</td>
+<td style="text-align: center;">sw5[7]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS2</code></td>
+<td style="text-align: center;">REC1IN58</td>
+<td style="text-align: center;">U5-6</td>
+<td style="text-align: center;">sw5[5]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS3</code></td>
+<td style="text-align: center;">REC1IN56</td>
+<td style="text-align: center;">U5-5</td>
+<td style="text-align: center;">sw5[4]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS4</code></td>
+<td style="text-align: center;">REC1IN38</td>
+<td style="text-align: center;">U5-4</td>
+<td style="text-align: center;">sw5[3]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS5</code></td>
+<td style="text-align: center;">REC1IN36</td>
+<td style="text-align: center;">U5-3</td>
+<td style="text-align: center;">sw5[2]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS6</code></td>
+<td style="text-align: center;">REC1IN31</td>
+<td style="text-align: center;">U5-1</td>
+<td style="text-align: center;">sw5[0]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS7</code></td>
+<td style="text-align: center;">REC1IN34</td>
+<td style="text-align: center;">U5-2</td>
+<td style="text-align: center;">sw5[1]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS8</code></td>
+<td style="text-align: center;">REC1IN27</td>
+<td style="text-align: center;">U6-7</td>
+<td style="text-align: center;">sw6[6]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS9</code></td>
+<td style="text-align: center;">REC1IN29</td>
+<td style="text-align: center;">U6-8</td>
+<td style="text-align: center;">sw6[7]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS10</code></td>
+<td style="text-align: center;">REC1IN25</td>
+<td style="text-align: center;">U6-6</td>
+<td style="text-align: center;">sw6[5]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS11</code></td>
+<td style="text-align: center;">REC1IN23</td>
+<td style="text-align: center;">U6-5</td>
+<td style="text-align: center;">sw6[4]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS12</code></td>
+<td style="text-align: center;">REC1IN3</td>
+<td style="text-align: center;">U6-2</td>
+<td style="text-align: center;">sw6[1]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS13</code></td>
+<td style="text-align: center;">REC1IN7</td>
+<td style="text-align: center;">U6-4</td>
+<td style="text-align: center;">sw6[3]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS14</code></td>
+<td style="text-align: center;">REC1IN5</td>
+<td style="text-align: center;">U6-3</td>
+<td style="text-align: center;">sw6[2]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS15</code></td>
+<td style="text-align: center;">REC1IN1</td>
+<td style="text-align: center;">U6-1</td>
+<td style="text-align: center;">sw6[0]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS16</code></td>
+<td style="text-align: center;">REC1IN9</td>
+<td style="text-align: center;">U3-8</td>
+<td style="text-align: center;">sw3[7]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS17</code></td>
+<td style="text-align: center;">REC1IN11</td>
+<td style="text-align: center;">U3-7</td>
+<td style="text-align: center;">sw3[6]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS18</code></td>
+<td style="text-align: center;">REC1IN15</td>
+<td style="text-align: center;">U3-5</td>
+<td style="text-align: center;">sw3[4]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS19</code></td>
+<td style="text-align: center;">REC1IN13</td>
+<td style="text-align: center;">U3-6</td>
+<td style="text-align: center;">sw3[5]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS20</code></td>
+<td style="text-align: center;">REC1IN30</td>
+<td style="text-align: center;">U3-3</td>
+<td style="text-align: center;">sw3[2]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS21</code></td>
+<td style="text-align: center;">REC1IN14</td>
+<td style="text-align: center;">U3-4</td>
+<td style="text-align: center;">sw3[3]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS22</code></td>
+<td style="text-align: center;">REC1IN19</td>
+<td style="text-align: center;">U3-2</td>
+<td style="text-align: center;">sw3[1]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS23</code></td>
+<td style="text-align: center;">REC1IN21</td>
+<td style="text-align: center;">U3-1</td>
+<td style="text-align: center;">sw3[0]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS24</code></td>
+<td style="text-align: center;">REC1IN32</td>
+<td style="text-align: center;">U4-8</td>
+<td style="text-align: center;">sw4[7]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS25</code></td>
+<td style="text-align: center;">REC1IN33</td>
+<td style="text-align: center;">U4-7</td>
+<td style="text-align: center;">sw4[6]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS26</code></td>
+<td style="text-align: center;">REC1IN40</td>
+<td style="text-align: center;">U4-5</td>
+<td style="text-align: center;">sw4[4]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS27</code></td>
+<td style="text-align: center;">REC1IN35</td>
+<td style="text-align: center;">U4-6</td>
+<td style="text-align: center;">sw4[5]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS28</code></td>
+<td style="text-align: center;">REC1IN50</td>
+<td style="text-align: center;">U4-3</td>
+<td style="text-align: center;">sw4[2]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS29</code></td>
+<td style="text-align: center;">REC1IN48</td>
+<td style="text-align: center;">U4-4</td>
+<td style="text-align: center;">sw4[3]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS30</code></td>
+<td style="text-align: center;">REC1IN52</td>
+<td style="text-align: center;">U4-2</td>
+<td style="text-align: center;">sw4[1]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS31</code></td>
+<td style="text-align: center;">REC1IN54</td>
+<td style="text-align: center;">U4-1</td>
+<td style="text-align: center;">sw4[0]</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Connections:</em> <code>REC1INX</code> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> <code>U10</code></p>
+</blockquote>
+<p><br></p>
+<hr />
+<h3 id="23-36-wire-custom-cable">2.3. 36-Wire Custom Cable</h3>
+<p>The 36-wire custom cable is made out of two <strong>36-pos dual row cable assembly (A79029-001)</strong> connected in a <strong>1-to-1</strong> fashion. Each wire connection is soldered and protected with a heat-shrinking tube. Additional heat-shrinking tubes are placed near the connectors. A metal shielding mesh is wrapped around the cable.</p>
+<p><img alt="" src="../../images/iris-128s-36-pin-cable.jpg" /></p>
+<p style="text-align:center"><i><b>Figure 5.</b> 36-Wire Custom Cable.</i></p>
+
+<p><br></p>
+<hr />
+<h3 id="24-adapter">2.4. Adapter</h3>
+<p>The figure below shows the different components of the adapter.</p>
+<p><img alt="" src="../../images/iris-128s-adapter-marked-top.jpg" /></p>
+<p><img alt="" src="../../images/iris-128s-adapter-marked-bottom.jpg" /></p>
+<p style="text-align:center"><i><b>Figure 6.</b> Rendering of the Adapter top and bottom sides indicating its main components.</i></p>
+
+<p><br></p>
+<p>The table below shows the main components of the Iris-128S adapter. Note the component correspondance with the previous figure.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Component</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><code>RHD +3.3V</code></td>
+<td style="text-align: left;">64-ch neural recording amplifier chip, Intan.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RHS +3.3V</code></td>
+<td style="text-align: left;">16-ch neural recording/stimulation chip, Intan.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>J1-1</code></td>
+<td style="text-align: left;"><code>RHD +3.3V</code> pin header.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>J7-1</code></td>
+<td style="text-align: left;"><code>VDD3V</code> pin header. This +3 V supply is generated by the <code>PMU</code>.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>J2-1</code></td>
+<td style="text-align: left;"><code>VDD_SW</code> pin header. This +9 V supply is generated by the <code>PMU</code>.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>J3-1</code></td>
+<td style="text-align: left;"><code>VSS_SW</code> pin header. This -9 V supply is generated by the <code>PMU</code>.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>J1-2</code>, <code>J7-2</code> <br> <code>J2-2</code>, <code>J3-2</code></td>
+<td style="text-align: left;"><code>GND</code> pin headers.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>A79623-001</code></td>
+<td style="text-align: left;">12-pin high-density connector, Omnetics.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>A79633-001</code></td>
+<td style="text-align: left;">16-pin high-density connector, Omnetics.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>A79024-001</code></td>
+<td style="text-align: left;">36-pin high-density connector, Omnetics.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>J4</code></td>
+<td style="text-align: left;">SWD 10-pin 0.05' pitch <code>Programming Port</code>.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>J6</code></td>
+<td style="text-align: left;"><code>Reset Button</code> connected to the MCU.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>J5</code></td>
+<td style="text-align: left;"><code>Expansion Port</code> with MCU GPIOs.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>STM32U0</code></td>
+<td style="text-align: left;"><code>STM32U083KCU6</code> Ultra-low-power Arm M0+, 32-bit MCU.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>PMU</code></td>
+<td style="text-align: left;">Power management unit which generaters +3 V and &plusmn;9 V.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>X1</code></td>
+<td style="text-align: left;"><code>ECX-1210B</code> 32.768 kHz Crystal.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-programming-the-adapter-mcu">3. Programming the Adapter MCU</h2>
+<p>The <code>adapter</code> board has a <code>STM32U083</code> ultra-low-power Arm M0+ 32-bit microcontroller (MCU) which is used to program the state of the switches in the headstage through <code>SPI</code> communication. You can use any tool you want to build the firmware and program the MCU; here we use the <code>STM32Cube</code> tools. You can download all the project documents from our <a href="https://github.com/openic-org/iris-128">GitHub repository</a>.</p>
+<h3 id="building-programming-the-project">Building &amp; Programming the Project</h3>
+<p>1. Install software &amp; hardware:</p>
+<ul>
+<li><code>STM32CubeIDE</code></li>
+<li><code>STM32CubeProgrammer</code></li>
+<li><code>STLINK-V3</code> box with cable (for programming the STM32)</li>
+</ul>
+<p>2. Download and import the project files:</p>
+<ul>
+<li>From <code>GitHub</code>, locate the controller folder.</li>
+<li>In <code>STM32CubeIDE</code>, go to File → Import → Existing Projects into Workspace.</li>
+<li>Select the controller folder and finish the import.</li>
+</ul>
+<p>3. Connect the hardware:</p>
+<ul>
+<li>Connect the <code>adapter</code> board to the <code>STLINK-V3</code> through the programming port.</li>
+<li>Connect the Intan <code>RHD Controller</code> and <code>RHS controller</code> using the Intan Record and Stim cables.</li>
+<li>Power on the <code>RHD Controller</code> (first) and <code>RHS controller</code>.</li>
+</ul>
+<p>4. Open the project in <code>STM32CubeIDE</code>:</p>
+<ul>
+<li>Open the <code>controller.ioc</code> file.</li>
+</ul>
+<p><img alt="" src="../../images/iris-128s-cubeIDE.png" /></p>
+<p style="text-align:center"><i><b>Figure 7.</b> Screenshoot of the <b>STM32CubeIDE</b> showing the <b>controller.ioc</b>.</i></p>
+
+<p><br></p>
+<p>5. Open and edit code:</p>
+<ul>
+<li>In the Project Explorer, open <code>main.c</code>.</li>
+<li>Edit the switch states as described below (these control which electrodes connect to which chip).<ul>
+<li>Example: To switch electrode RS0 from RHD to RHS, set the corresponding value in the switch matrix to 1 - in the screenshots. Section 2.2 lists the switch positions.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="" src="../../images/iris-128s-switches0.png" /></p>
+<p style="text-align:center"><i><b>Figure 8.</b> Screenshoot of the <b>STM32CubeIDE</b> showing the <b>main.ioc</b>.</i></p>
+
+<p><br></p>
+<div class="grid">
+<div class="language-c highlight"><span class="filename">Switch=0</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">aTxBuffer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b00000000</span><span class="p">;</span><span class="w"> </span><span class="c1">// sw1</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">aTxBuffer</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b00000000</span><span class="p">;</span><span class="w"> </span><span class="c1">// sw2</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">aTxBuffer</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b11111111</span><span class="p">;</span><span class="w"> </span><span class="c1">// sw3</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">aTxBuffer</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b11111111</span><span class="p">;</span><span class="w"> </span><span class="c1">// sw4</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">aTxBuffer</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b11111111</span><span class="p">;</span><span class="w"> </span><span class="c1">// sw5</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">aTxBuffer</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b11111111</span><span class="p">;</span><span class="w"> </span><span class="c1">// sw6</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">aTxBuffer</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b00000000</span><span class="p">;</span><span class="w"> </span><span class="c1">// sw7</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">aTxBuffer</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b00000000</span><span class="p">;</span><span class="w"> </span><span class="c1">// sw8</span>
+</span></code></pre></div>
+<div class="language-c highlight"><span class="filename">Switch=1</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">aTxBuffer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b00000000</span><span class="p">;</span><span class="w"> </span><span class="c1">// sw1</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">aTxBuffer</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b00000000</span><span class="p">;</span><span class="w"> </span><span class="c1">// sw2</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">aTxBuffer</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b11111111</span><span class="p">;</span><span class="w"> </span><span class="c1">// sw3</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">aTxBuffer</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b11111111</span><span class="p">;</span><span class="w"> </span><span class="c1">// sw4</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">aTxBuffer</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b10111111</span><span class="p">;</span><span class="w"> </span><span class="c1">// sw5</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">aTxBuffer</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b11111111</span><span class="p">;</span><span class="w"> </span><span class="c1">// sw6</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">aTxBuffer</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b00000000</span><span class="p">;</span><span class="w"> </span><span class="c1">// sw7</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">aTxBuffer</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b00000001</span><span class="p">;</span><span class="w"> </span><span class="c1">// sw8</span>
+</span></code></pre></div>
+</div>
+<p style="text-align:center"><i><b>Figure 9.</b> Changing the <b>RS0</b> switch state from RHD to RHS.</i></p>
+
+<p><br></p>
+<p>6. Build and compile:</p>
+<ul>
+<li>Click the <img alt="🔨" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f528.svg" title=":hammer:" /> icon (“Build Project”) to compile.</li>
+<li>Wait for “Build Finished” to appear in the console.</li>
+</ul>
+<p>7. Locate the compiled output:</p>
+<ul>
+<li>The compiled firmware file is saved in the project’s <code>Debug</code> folder:<br><code>C:\Users\...\STM32CubeIDE\workspace_1.17.0\controller\Debug\controller.elf</code></li>
+<li>This <code>.elf</code> file can be used directly with <code>STM32CubeProgrammer</code>.</li>
+</ul>
+<p>8. Flash the controller using <code>STM32CubeProgrammer</code>:</p>
+<ul>
+<li>Open <code>STM32CubeProgrammer</code>.</li>
+<li>Connect to the board via <code>STLINK-V3</code>.</li>
+<li>Click <code>Open file</code> and select <code>controller.elf</code> (or <code>controller.bin</code> if generated).</li>
+<li>Click <code>Start Programming</code>.</li>
+</ul>
+<p><img alt="" src="../../images/iris-128s-programmerIDE.png" /></p>
+<p style="text-align:center"><i><b>Figure 10.</b> Screenshoot of the <b>STM32CubeProgrammer</b> showing the <b>main.ioc</b>.</i></p>
+
+<p><br></p>
+<p>9. Verify the update:</p>
+<ul>
+<li>Restart the Intan RHD and RHS software.</li>
+<li>Check that the switches have updated correctly (e.g., this can be checked by running the impedance function in Intan RHS controller for that electrode. It should switch from the RHD controller to the RHS controller. Unconnected channels will have MOhm impedances.).</li>
+</ul>
+<p><br></p>
+<h4 id="quick-summary">Quick Summary</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Step</th>
+<th style="text-align: left;">Action</th>
+<th style="text-align: center;">Tool</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Install <code>CubeIDE</code> and <code>CubeProgrammer</code></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">Import project</td>
+<td style="text-align: center;"><code>CubeIDE</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">Connect hardware</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">Open project and connect</td>
+<td style="text-align: center;"><code>CubeIDE</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;">Edit <code>main.c</code></td>
+<td style="text-align: center;"><code>CubeIDE</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;">Build project</td>
+<td style="text-align: center;"><code>CubeIDE</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: left;">Locate <code>controller.elf</code> in Debug folder</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: left;">(Optional) Generate <code>controller.bin</code></td>
+<td style="text-align: center;"><code>CubeIDE</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td style="text-align: left;">Flash firmware</td>
+<td style="text-align: center;"><code>CubeProgrammer</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td style="text-align: left;">Verify in Intan software</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="changing-the-state-of-the-switches">Changing the State of the Switches</h3>
+<p>You can change the state of each of the switches in the eight octal <code>ADGS5414</code> by updating the values of the constants shown below. Notice that the bit <code>swX[Y]</code> corresponds to the <code>Y</code> switch of component <code>uX</code>, where <code>X</code>,<code>Y</code> <span class="arithmatex">\(\in \{1,2,...8 \}\)</span> . The value of <code>0</code> indicates the switch is open whereas the <code>1</code> indicates it is closed.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Function</th>
+<th style="text-align: left;">Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Recording</td>
+<td style="text-align: left;"><code>OPEN</code> the switch to the RHS2116 and <code>CLOSE</code> the one to the RHD2164.</td>
+</tr>
+<tr>
+<td style="text-align: center;">Stimulation</td>
+<td style="text-align: left;"><code>CLOSE</code> the switch to the RHS2116 and <code>OPEN</code> the one to the RHD2164.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="example-code">Example Code</h4>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">/* Switches states: swX=[7..0] */</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1">// Default values</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">aTxBuffer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b00000000</span><span class="p">;</span><span class="w"> </span><span class="c1">// sw1</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">aTxBuffer</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b00000000</span><span class="p">;</span><span class="w"> </span><span class="c1">// sw2</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">aTxBuffer</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b11111111</span><span class="p">;</span><span class="w"> </span><span class="c1">// sw3</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">aTxBuffer</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b11111111</span><span class="p">;</span><span class="w"> </span><span class="c1">// sw4</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="n">aTxBuffer</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b11111111</span><span class="p">;</span><span class="w"> </span><span class="c1">// sw5</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">aTxBuffer</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b11111111</span><span class="p">;</span><span class="w"> </span><span class="c1">// sw6</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="n">aTxBuffer</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b00000000</span><span class="p">;</span><span class="w"> </span><span class="c1">// sw7</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="n">aTxBuffer</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b00000000</span><span class="p">;</span><span class="w"> </span><span class="c1">// sw8</span>
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When configuring a stimulation channel, make sure to <code>OPEN</code> the switch connected to the <code>RHD2164</code>. Failure to do so can cause damage to the <code>RHD2164</code> due to the possibility of higher than expected voltages at its input.</p>
+</div>
+<h3 id="further-development">Further Development</h3>
+<p>The current use of the MCU is to program the state of the switches in the headstage after the <code>adapter</code> board is powered on. You could further expand the functions of the MCU to adapt the <code>Iris-128s</code> neural interface to your project. For this purpose, the <code>adapter</code> board features a <code>reset button</code>, a <code>32 kHz crystal</code>, and a <code>expansion port</code> with flexible <code>GPIO</code> for easy prototyping and development.</p>
+<hr />
+<h2 id="4-hardware-setup">4. Hardware Setup</h2>
+<p>The figures below show the required hardware setup.</p>
+<p><img alt="" src="../../images/iris-128s-setup-diagram.jpg" /></p>
+<p style="text-align:center"><i><b>Figure 11.</b> Hardware setup diagram.</i></p>
+
+<p><br></p>
+<p><img alt="" src="../../images/iris-128s-setup-picture.jpg" /></p>
+<p style="text-align:center"><i><b>Figure 12.</b> Hardware setup picture.</i></p>
+
+<p><br></p>
+<p><img alt="" src="../../images/iris-128s-meas-pbs.jpg" /></p>
+<p style="text-align:center"><i><b>Figure 13.</b> Iris-128S performing measurements in PBS inside a Faraday cage.</i></p>
+
+<h3 id="step-1-prepare-for-surgery">Step 1 — Prepare for Surgery</h3>
+<ol>
+<li>Secure the animal in a <strong>stereotaxic frame</strong>.</li>
+<li>Mount the <strong>3D-printed headstage holder</strong> onto the stereotax.</li>
+<li>Seat the <strong>thin-film electrode connector</strong> into the holder.</li>
+<li>Plug the <strong>Iris-128S headstage</strong> into the thin-film connector.</li>
+<li>Fasten the headstage to the holder via mounting holes.</li>
+</ol>
+<hr />
+<h3 id="step-2-connect-to-adapter">Step 2 — Connect to Adapter</h3>
+<ol>
+<li>Connect the <strong>36-pin custom cable</strong> between <code>headstage</code> and <code>adapter</code>.</li>
+<li>Route this cable <strong>outside the Faraday cage</strong>.</li>
+<li>Plug in the <strong>1 RHD interface cable</strong> (blue Omnetics) and <strong>1 RHS interface cable</strong> (red Omnetics):<ul>
+<li><strong>S1 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> RHD Controller</strong></li>
+<li><strong>S4 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> RHS Controller</strong></li>
+</ul>
+</li>
+</ol>
+<hr />
+<h3 id="step-3-ground-and-reference">Step 3 — Ground and Reference</h3>
+<ul>
+<li>Connect <code>REF</code> and <code>GND</code> pads using <strong>platinum wires</strong> soldered into the through-holes on the headstage.  </li>
+<li>Keep <code>REF</code> and <code>GND</code> <strong>unshorted</strong> during normal operation.  </li>
+<li>Optionally, these may be tied together or implemented on the thin-film array.  </li>
+<li>Ensure the entire setup (animal, cage, supplies) shares a <strong>common ground</strong>.</li>
+</ul>
+<hr />
+<h2 id="5-software-setup">5. Software Setup</h2>
+<ol>
+<li>Install <strong>Intan RHD Recording Controller Software</strong> into Computer 1 (see <a href="https://intantech.com">Intan User Guide</a>).</li>
+<li>Install <strong>Intan RHS Recording Controller Software</strong> into Computer 2 (see <a href="https://intantech.com">Intan User Guide</a>).</li>
+<li>Connect the <strong>RHD Controller</strong> to Computer 1 via USB.</li>
+<li>Connect the <strong>RHS Controller</strong> to Computer 2 via USB.</li>
+<li>Power on the <strong>Intan RHD Controller</strong>.</li>
+<li>Power on the <strong>Intan RHS Controller</strong>.</li>
+<li>Launch the software in both computers — channels should automatically appear.  </li>
+<li>Adjust sampling rate and channel naming as needed.</li>
+</ol>
+<p><img alt="" src="../../images/iris-128s-computers.jpg" /></p>
+<p style="text-align:center"><i><b>Figure 14.</b> Two computers running the (left) Intan Recording Controller software and (right) Stimulation/Recording Controller software.</i></p>
+
+<hr />
+<h2 id="6-power-up-sequence">6. Power-Up Sequence</h2>
+<ol>
+<li>Confirm all mechanical and electrical connections.</li>
+<li><strong>Turn on RHD Intan Controller.</strong>  </li>
+<li><strong>Turn on RHS Intan Controller.</strong>  </li>
+<li>Verify communication in the Intan software.</li>
+</ol>
+<hr />
+<h2 id="7-bench-animal-setup-checklist">7. Bench &amp; Animal Setup Checklist</h2>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Procedure</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bench Validation</strong></td>
+<td>Connect planar 128-ch polyimide MEA <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> verify impedance in PBS (~295 kΩ @ 1 kHz).</td>
+</tr>
+<tr>
+<td><strong>Grounding</strong></td>
+<td>Attach platinum wires for <code>REF</code> and <code>GND</code> to headstage pads.</td>
+</tr>
+<tr>
+<td><strong>Recording</strong></td>
+<td>Launch Intan software <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> set sampling rate 30 kSa/s <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> confirm signal.</td>
+</tr>
+<tr>
+<td><strong>In Vivo Setup</strong></td>
+<td>Craniotomy <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> insert MEA into cortex <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> connect headstage.</td>
+</tr>
+<tr>
+<td><strong>Validation</strong></td>
+<td>Observe LFPs (0.5–100 Hz) and single-unit spikes (~250–500 &mu;Vpp).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="8-performance-summary">8. Performance Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Iris 128S</th>
+<th>Comparison (Intan 32 ch)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Noise (Vrms)</td>
+<td>3.33 &mu;V</td>
+<td>2.4 &mu;V</td>
+</tr>
+<tr>
+<td>Weight</td>
+<td>4.47 g</td>
+<td>1.4 g</td>
+</tr>
+<tr>
+<td>Volume</td>
+<td>720 mm<sup>3</sup></td>
+<td>576 mm<sup>3</sup></td>
+</tr>
+<tr>
+<td>Channels</td>
+<td>32 stim / 128 record</td>
+<td>32 stim / 32 record</td>
+</tr>
+<tr>
+<td>Frequency Response</td>
+<td>0.5 Hz – 5 kHz (flat midband gain)</td>
+<td>Similar</td>
+</tr>
+<tr>
+<td>Impedance (1 kHz, Pt site)</td>
+<td>~2.9 × 10<sup>5</sup> &Omega;</td>
+<td>2.4 × 10<sup>5</sup> &Omega;</td>
+</tr>
+<tr>
+<td>Supply</td>
+<td>&plusmn;7 V &amp; 3.3 V</td>
+<td>3.3 V (single)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="9-stimulation-parameters">9. Stimulation Parameters</h2>
+<ul>
+<li><strong>Chip:</strong> Intan RHS2116 (D5716)  </li>
+<li><strong>Current Range:</strong> 2.55 µA – 255 µA  </li>
+<li><strong>Step Size:</strong> 10 nA – 10 µA  </li>
+<li><strong>Supply Range:</strong> ±3.3 – 10.7 V (max combined 14 V)  </li>
+<li><strong>Sampling Rates:</strong> 1 – 30 kS/s  </li>
+<li><strong>Test Waveform:</strong> Biphasic cathodic-first 4 µA, 500 µs pulses, 100 Hz (0.1 mC/cm² charge density)</li>
+</ul>
+<hr />
+<h2 id="10-additional-notes">10. Additional Notes</h2>
+<ul>
+<li>The <strong>36-wire custom cable</strong> was built on-premise; contact <strong>manuel@openic.org</strong> for any questions.</li>
+<li>The <strong>design files, schematics, BOMs, and firware</strong> are open-source on GitHub (OpenIC / U Oregon).</li>
+<li>The Iris 128B and 128S share identical PCB stack-up and fabrication parameters:<ul>
+<li>8-layer (3 mil trace / space, ENIG finish, 1 oz Cu).  </li>
+</ul>
+</li>
+<li>Designed in <strong>KiCad</strong>, <code>STM32CubeIDE</code>, verified by <strong>micro-CT imaging</strong> and <strong>in vivo rat recordings</strong>.</li>
+<li>For portable or wireless operation, future iterations aim to reduce weight &lt; 3 g.</li>
+</ul>
+<hr />
+<h2 id="11-reference-setup-recipe">11. Reference Setup Recipe</h2>
+<ol>
+<li>Connect all GNDs in the system.</li>
+<li>Connect electrode array <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> headstage <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> adapter <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Intan Controllers.</li>
+<li>Verify REF/GND connections (platinum wire, bone screw, headstage ground, system ground).</li>
+<li>Power on Intan RHS Controller and RHD Controller and confrim communication with headstage.</li>
+<li>Update MCU firmware if needed.</li>
+<li>Begin recording and stimulation tests.</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 - 2025 Manuel Monge
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.sections", "navigation.path", "navigation.indexes", "navigation.top", "content.code.copy", "content.code.select", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/mermaid.mjs" type="module"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

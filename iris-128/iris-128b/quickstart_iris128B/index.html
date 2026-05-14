@@ -1,0 +1,1770 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Manuel Monge">
+      
+      
+        <link rel="canonical" href="https://openic.org/iris-128/iris-128b/quickstart_iris128B/">
+      
+      
+        <link rel="prev" href="../adapter_iris128B/">
+      
+      
+        <link rel="next" href="../../iris-128s/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Quickstart - OpenIC Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#iris-128b-quickstart-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="OpenIC Documentation" class="md-header__button md-logo" aria-label="OpenIC Documentation" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OpenIC Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Quickstart
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/openic-org/docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    openic-org/docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="OpenIC Documentation" class="md-nav__button md-logo" aria-label="OpenIC Documentation" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    OpenIC Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/openic-org/docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    openic-org/docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Iris 128
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Iris 128
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Iris 128B
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Iris 128B
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../headstage_iris128B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Headstage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adapter_iris128B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Adapter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-system-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. System Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-power-supply-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Power Supply Requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-hardware-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Hardware Components
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-hardware-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Hardware Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Hardware Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-prepare-for-surgery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — Prepare for Surgery
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-connect-to-adapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Connect to Adapter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-ground-and-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 — Ground and Reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-software-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Software Setup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-power-up-sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Power-Up Sequence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-bench-animal-setup-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Bench &amp; Animal Setup Checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-performance-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Performance Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-stimulation-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Stimulation Parameters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-additional-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Additional Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-reference-setup-recipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Reference Setup Recipe
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../iris-128s/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Iris 128S
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Iris 128S
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iris-128s/headstage_iris128s/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Headstage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iris-128s/adapter_iris128s/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Adapter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iris-128s/quickstart_iris128s/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../thin-film/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Thin-Film
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Thin-Film
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    License
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LICENSE.txt" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LICENSE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NOTICE.txt" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NOTICE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../tutorials/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tutorials
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/xschem-pcell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Xschem with Pcells
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/tiny-tapeout/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Working with Tiny Tapeout
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-system-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. System Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-power-supply-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Power Supply Requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-hardware-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Hardware Components
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-hardware-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Hardware Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Hardware Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-prepare-for-surgery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — Prepare for Surgery
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-connect-to-adapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Connect to Adapter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-ground-and-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 — Ground and Reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-software-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Software Setup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-power-up-sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Power-Up Sequence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-bench-animal-setup-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Bench &amp; Animal Setup Checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-performance-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Performance Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-stimulation-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Stimulation Parameters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-additional-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Additional Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-reference-setup-recipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Reference Setup Recipe
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Iris 128
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Iris 128B
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="iris-128b-quickstart-guide">Iris-128B Quickstart Guide</h1>
+<div class="admonition info paper">
+<p class="admonition-title">Info</p>
+<p>Open-Source 128-Channel Headstage for Neural Recording and Stimulation
+<em>(Based on Jacobs et al., 2025 – “Iris 128x: Open-Source 128-Channel Headstages for Neural Stimulation and Recording”)</em></p>
+</div>
+<hr />
+<h2 id="1-system-overview">1. System Overview</h2>
+<p>The Iris-128B system provides 128-channel, fully bidirectional recording and stimulation capability using eight Intan RHS2116 integrated amplifier/stimulator chips.<br />
+It interfaces with thin-film microelectrode arrays through a Samtec SEAF8-20-1-S-08-2-RA connector and communicates with an Intan RHS Controller via low-voltage differential signaling (LVDS) through a Molex 80-pin nanopitch cable and an adapter board.</p>
+<hr />
+<h2 id="2-power-supply-requirements">2. Power Supply Requirements</h2>
+<p>Use a bench DC power supply such as the HP E3631A Triple Output DC Power Supply (HP Inc., Palo Alto, CA).  </p>
+<table>
+<thead>
+<tr>
+<th>Rail</th>
+<th>Voltage</th>
+<th>Current Limit</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vstim +</strong></td>
+<td>+7 V</td>
+<td>100 mA</td>
+<td>Positive stimulation rail</td>
+</tr>
+<tr>
+<td><strong>Vstim –</strong></td>
+<td>–7 V</td>
+<td>100 mA</td>
+<td>Negative stimulation rail</td>
+</tr>
+<tr>
+<td><strong>VCC</strong></td>
+<td>+3.3 V</td>
+<td>100 mA</td>
+<td>Digital logic &amp; analog power</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Tip:</strong> Keep each supply current-limited to 100 mA to protect the headstage.</p>
+</blockquote>
+<p><img alt="iris-128" src="../../images/iris-128b-wiringdiagram.jpg" /></p>
+<p><em>Fig. 1. Wiring diagram containing power supplies, intan controller, adapter board, and cable to headstage.</em></p>
+<hr />
+<h2 id="3-hardware-components">3. Hardware Components</h2>
+<ul>
+<li>
+<p><strong>Headstage (Iris-128B)</strong> </p>
+<ul>
+<li>8 × Intan RHS2116 ICs (recording + stimulation)</li>
+<li>Samtec SEAF8 connector (160-pin) for thin-film MEA</li>
+<li>Molex 80-pin nanopitch output to adapter</li>
+<li>±3.3 – 7 V supply range  </li>
+</ul>
+</li>
+<li>
+<p><strong>Adapter Board</strong></p>
+<ul>
+<li>Passive signal routing (no active components)  </li>
+<li>4 × Omnetics A79633 connectors to Intan RHS ports A–D  </li>
+<li>3 × barrel jacks for ±Vstim and VCC  </li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="4-hardware-setup">4. Hardware Setup</h2>
+<h3 id="step-1-prepare-for-surgery">Step 1 — Prepare for Surgery</h3>
+<ol>
+<li>Secure the animal in a stereotaxic frame.  </li>
+<li>Mount the 3D-printed headstage holder onto the stereotax.  </li>
+<li>Seat the thin-film electrode connector into the holder.  </li>
+<li>Plug the Iris-128B headstage into the thin-film connector.  </li>
+<li>Fasten the headstage to the holder via mounting holes.</li>
+</ol>
+<p><img alt="iris-128" src="../../images/iris-128b-headstage-attachments.jpg" /></p>
+<p><em>Fig. 2. (A) Headstage with thinfilm attached to stereotax in 3d printed fixture. (B) Headstage and thinfilm.</em></p>
+<hr />
+<h3 id="step-2-connect-to-adapter">Step 2 — Connect to Adapter</h3>
+<ol>
+<li>Connect the Molex 80-pin cable between headstage and adapter.</li>
+<li>Route this cable outside the Faraday cage.</li>
+<li>Plug in the 4 RHS interface cables (red Omnetics):<ul>
+<li><strong>S1 → Port A</strong> (shared CLK and CS)  </li>
+<li><strong>S2 → Port B</strong>  </li>
+<li><strong>S3 → Port C</strong>  </li>
+<li><strong>S4 → Port D</strong></li>
+</ul>
+</li>
+</ol>
+<hr />
+<h3 id="step-3-ground-and-reference">Step 3 — Ground and Reference</h3>
+<ul>
+<li>Connect REF and GND pads using platinum wires soldered into the through-holes on the headstage.  </li>
+<li>Keep REF and GND unshorted during normal operation.  </li>
+<li>Optionally, these may be tied together or implemented on the thin-film array.  </li>
+<li>Ensure the entire setup (animal, cage, supplies) shares a common ground.</li>
+</ul>
+<hr />
+<h2 id="5-software-setup">5. Software Setup</h2>
+<ol>
+<li>Install Intan RHS Recording Controller Software (see <a href="https://intantech.com">Intan User Guide</a>).  </li>
+<li>Connect the RHS Controller to the computer via USB.    </li>
+</ol>
+<hr />
+<h2 id="6-power-up-sequence">6. Power-Up Sequence</h2>
+<ol>
+<li>Confirm the Intan controller and power supplies are connected to the chassis ground on the controller (green plug on back of controller) and the grounds on the power supply are all connected to each other as well. </li>
+<li>Set voltages on the HP E3631A:<ul>
+<li>+7 V, –7 V, +3.3 V rails  </li>
+<li>100 mA current limits  </li>
+</ul>
+</li>
+<li>Plug barrel jacks into Vstim± and VCC inputs on the adapter.  </li>
+<li>Turn on the power supply. </li>
+<li>Turn on the Intan Controller.</li>
+<li>Launch the software — channels from Ports A–D should automatically appear.  </li>
+<li>Adjust sampling rate and channel naming as needed.</li>
+</ol>
+<p><img alt="iris-128" src="../../images/iris-128b-software.jpg" /></p>
+<p><em>Fig. 3. Software launch with 4 connected ports (total 128 channels).</em></p>
+<hr />
+<h2 id="7-bench-animal-setup-checklist">7. Bench &amp; Animal Setup Checklist</h2>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Procedure</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bench Validation</strong></td>
+<td>Connect planar 128-ch polyimide MEA → verify impedance in PBS (~295 kΩ @ 1 kHz).</td>
+</tr>
+<tr>
+<td><strong>Grounding</strong></td>
+<td>Attach platinum wires for REF and GND to headstage pads.</td>
+</tr>
+<tr>
+<td><strong>Recording</strong></td>
+<td>Launch Intan software → set sampling rate 30 kSa/s → confirm signal.</td>
+</tr>
+<tr>
+<td><strong>In Vivo Setup</strong></td>
+<td>Craniotomy → insert MEA into cortex → connect headstage.</td>
+</tr>
+<tr>
+<td><strong>Validation</strong></td>
+<td>Observe LFPs (0.5–100 Hz) and single-unit spikes (~250–500 µVpp).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="8-performance-summary">8. Performance Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Iris 128B</th>
+<th>Comparison (Intan 32 ch)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Noise (Vrms)</td>
+<td>3.09 µV</td>
+<td>2.4 µV</td>
+</tr>
+<tr>
+<td>Weight</td>
+<td>9.6 g</td>
+<td>1.4 g</td>
+</tr>
+<tr>
+<td>Volume</td>
+<td>1188 mm³</td>
+<td>576 mm³</td>
+</tr>
+<tr>
+<td>Channels</td>
+<td>128 stim / 128 record</td>
+<td>32 stim / 32 record</td>
+</tr>
+<tr>
+<td>Frequency Response</td>
+<td>0.5 Hz – 5 kHz (flat midband gain)</td>
+<td>Similar</td>
+</tr>
+<tr>
+<td>Impedance (1 kHz, Pt site)</td>
+<td>~2.9 × 10⁵ Ω</td>
+<td>2.4 × 10⁵ Ω</td>
+</tr>
+<tr>
+<td>Supply</td>
+<td>±7 V &amp; 3.3 V</td>
+<td>3.3 V (single)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="9-stimulation-parameters">9. Stimulation Parameters</h2>
+<ul>
+<li><strong>Chip:</strong> Intan RHS2116 (D5716)  </li>
+<li><strong>Current Range:</strong> 2.55 µA – 255 µA  </li>
+<li><strong>Step Size:</strong> 10 nA – 10 µA  </li>
+<li><strong>Supply Range:</strong> ±3.3 – 10.7 V (max combined 14 V)  </li>
+<li><strong>Sampling Rates:</strong> 1 – 30 kS/s  </li>
+<li><strong>Test Waveform:</strong> Biphasic cathodic-first 4 µA, 500 µs pulses, 100 Hz (0.1 mC/cm² charge density)</li>
+</ul>
+<hr />
+<h2 id="10-additional-notes">10. Additional Notes</h2>
+<ul>
+<li>The Molex #205058-1002 cable assembly is discontinued; contact <strong>fdeku@uoregon.edu</strong> or <strong>manuel@openic.org</strong> for updated options.</li>
+<li>The design files, schematics, and BOMs are open-source on GitHub (OpenIC / U Oregon).  </li>
+<li>The Iris 128B and 128S share identical PCB stack-up and fabrication parameters:<ul>
+<li>8-layer (3 mil trace / space, ENIG finish, 1 oz Cu).  </li>
+</ul>
+</li>
+<li>Designed in <em>KiCad</em>, verified by micro-CT imaging and in vivo electrophysiology recordings.  </li>
+<li>For portable or wireless operation, future iterations aim to reduce weight &lt; 5 g and integrate on-board power management.</li>
+</ul>
+<hr />
+<h2 id="11-reference-setup-recipe">11. Reference Setup Recipe</h2>
+<ol>
+<li>Power on HP E3631A (±7 V &amp; 3.3 V outputs).  </li>
+<li>Connect thin-film → headstage → adapter → Intan Controller.  </li>
+<li>Verify REF/GND connections (platinum wire → bone screws).  </li>
+<li>Enable power and confirm communication in Intan software.  </li>
+<li>Begin recording and stimulation tests.</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 - 2025 Manuel Monge
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.sections", "navigation.path", "navigation.indexes", "navigation.top", "content.code.copy", "content.code.select", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/mermaid.mjs" type="module"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

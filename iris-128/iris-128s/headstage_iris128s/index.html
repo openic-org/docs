@@ -1,0 +1,2024 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Manuel Monge">
+      
+      
+        <link rel="canonical" href="https://openic.org/iris-128/iris-128s/headstage_iris128s/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../adapter_iris128s/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Headstage - OpenIC Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#headstage" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="OpenIC Documentation" class="md-header__button md-logo" aria-label="OpenIC Documentation" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OpenIC Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Headstage
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/openic-org/docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    openic-org/docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="OpenIC Documentation" class="md-nav__button md-logo" aria-label="OpenIC Documentation" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    OpenIC Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/openic-org/docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    openic-org/docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Iris 128
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Iris 128
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../iris-128b/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Iris 128B
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Iris 128B
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iris-128b/headstage_iris128B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Headstage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iris-128b/adapter_iris128B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Adapter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iris-128b/quickstart_iris128B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Iris 128S
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Iris 128S
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Headstage
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Headstage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#electrode-array-connector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Electrode Array Connector
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analog-switches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analog Switches
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rhd2164-rhs2116" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RHD2164 &amp; RHS2116
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interface-connector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interface Connector
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pcb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PCB
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PCB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pcb-specifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PCB Specifications
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pcb-stack-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PCB Stack Up
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#headstage-pcb-vias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Headstage PCB Vias
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adapter_iris128s/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Adapter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickstart_iris128s/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../thin-film/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Thin-Film
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Thin-Film
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    License
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LICENSE.txt" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LICENSE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NOTICE.txt" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NOTICE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../tutorials/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tutorials
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/xschem-pcell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Xschem with Pcells
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/tiny-tapeout/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Working with Tiny Tapeout
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#electrode-array-connector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Electrode Array Connector
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analog-switches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analog Switches
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rhd2164-rhs2116" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RHD2164 &amp; RHS2116
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interface-connector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interface Connector
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pcb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PCB
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PCB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pcb-specifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PCB Specifications
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pcb-stack-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PCB Stack Up
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#headstage-pcb-vias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Headstage PCB Vias
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Iris 128
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Iris 128S
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="headstage">Headstage</h1>
+<p>The headstage consists of the input 128-pin connector (<em>Conn1</em>), the analog switches (<em>Switches</em>), the recording (<em>RHD2164</em>) and stimulation (<em>RHS2116</em>) chips, and the output 36-pin connector (<em>Conn2</em>). This system is shown in the figure below, where the numbers inside the <em>Conn1</em> and <em>Conn2</em> blocks represent a set of pins from the connector.</p>
+<pre class="mermaid"><code>graph LR
+    %% PCB Definition
+    subgraph PCB1[Headstage]
+        direction LR
+        %% Internal Components
+        r0[RHD2164]
+        r1[RHD2164]
+        s0[RHS2116]
+
+        subgraph sw[Switches]
+            sw0["SW8
+                x4"]
+            sw1["SW8
+                x4"]
+        end
+
+        subgraph b2["Conn1"]
+            e0[64]
+            e1[32]
+            e2[32]
+        end
+
+        subgraph b3["Conn2"]
+            e3[12]
+            e4[14]
+            e5[10]
+        end
+
+        %% Connections
+        e0 ---&gt; r0
+        e1 ---&gt; r1
+        e2 &lt;--&gt; sw0 --&gt; r1
+        e2 &lt;--&gt; sw1 &lt;--&gt; s0
+        r0 &lt;--&gt; e3
+        r1 &lt;--&gt; e3
+        s0 &lt;--&gt; e4
+        sw &lt;---&gt; e5
+    end
+
+    subgraph PCB2[Adapter]
+
+    end
+
+    b0["128 Electrode Array
+        with matching
+        Conector"]
+
+    %% Top-level connections
+    b0 &lt;--&gt; b2
+    b3 &lt;--&gt; PCB2
+    PCB2 &lt;--&gt; i0["Intan Rec
+                 Controller"]
+    PCB2 &lt;--&gt; i1["Intan Rec/Stim
+                 Controller"]
+    PCB2 &lt;--&gt; Programmer
+</code></pre>
+<p style="text-align:center"><i><b>Figure 1.</b> System architecutre of the Headstage.</i></p>
+
+<p><br></p>
+<p><img alt="" src="../../images/headstage-schematic.png" /></p>
+<p style="text-align:center"><i><b>Figure 2.</b> Schematic of the Headstage.</i></p>
+
+<p><br></p>
+<p>We describe each component below:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Component</th>
+<th style="text-align: center;">Part</th>
+<th style="text-align: center;">Manufacturer</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><code>Conn1</code></td>
+<td style="text-align: center;">SEAM8-20-S02.0-S-08-3</td>
+<td style="text-align: center;">Samtec</td>
+<td style="text-align: left;">160-pin connector</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>Conn2</code></td>
+<td style="text-align: center;">A79024-001</td>
+<td style="text-align: center;">Omnetics</td>
+<td style="text-align: left;">36-pin connector</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>SW8</code></td>
+<td style="text-align: center;">ADGS5414BCPZ</td>
+<td style="text-align: center;">ADI</td>
+<td style="text-align: left;">Analog switches</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RHD2164</code></td>
+<td style="text-align: center;">RHD2164</td>
+<td style="text-align: center;">Intan</td>
+<td style="text-align: left;">Recording chip</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RHS2116</code></td>
+<td style="text-align: center;">RHS2116</td>
+<td style="text-align: center;">Intan</td>
+<td style="text-align: left;">Stimulation chip</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p>The PCB of the <em>headstage</em> has a size of 30.2 x 25.5 mm<sup>2</sup>. </p>
+<div class="grid">
+<p><img alt="" src="../../images/headstage-rendering-top.png" /></p>
+<p><img alt="" src="../../images/headstage-rendering-bottom.png" /></p>
+</div>
+<p style="text-align:center"><i><b>Figure 3.</b> Rendering of the Headstage PCB (left) top and (right) bottom sides.</i></p>
+
+<p><br></p>
+<h2 id="electrode-array-connector">Electrode Array Connector</h2>
+<p>We are currently using the <em>SEAM8 Samtec</em> connector for interfacing with 128-ch electrode array. The top and bottom two rows are dedicated for <code>GND</code>, <code>3.3V</code>, <code>LED</code>, and <code>REF</code> connectors. The remaining 16x8 of them are for connecting to the 128 electrodes. The first 6 columns to the left are <em>recording only</em> <code>R</code> pins while the first 2 columns to the right are <em>recording and simulation</em> <code>RS</code> pins. These pins are shown in the figure below.</p>
+<p><img alt="" src="../../images/headstage-electrode-array-connector.png" /></p>
+<p style="text-align:center"><i><b>Figure 4.</b> Details of the electrode array connector footprint.</i></p>
+
+<p><br></p>
+<p>We describe each pin type below:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Pin Type</th>
+<th style="text-align: center;"># Pins</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><code>R</code></td>
+<td style="text-align: center;">96</td>
+<td style="text-align: left;">Recording only pins where 64 of them are connected to all inputs of 1x <code>R64</code> chip and the rest to 32 inputs of a second <code>R64</code> chip.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>RS</code></td>
+<td style="text-align: center;">32</td>
+<td style="text-align: left;">Recording and stimulation pins connected to all 64x inputs of 8x <code>ADGS5414</code> octal analog switches such that each <code>RS</code> pin is connected to 2x analog switches inputs.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>REF</code></td>
+<td style="text-align: center;">8</td>
+<td style="text-align: left;">These pins are all shorted together and are connected to the reference electrode.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>GND</code></td>
+<td style="text-align: center;">18</td>
+<td style="text-align: left;">These pins are all shorted and connected to the <em>headstage</em> ground.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>3.3V</code></td>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">Unconnected.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>LED</code></td>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">Unconnected.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h2 id="analog-switches">Analog Switches</h2>
+<p>The analog switches connect the 32x <code>RS</code> pins to 32x inputs of one <code>RHD2164</code> chip and all 16x inputs of the <code>RHS2116</code> chip using 8x <code>ADGS5414</code> chips. This connection is shown in the figure below.</p>
+<p><img alt="" src="../../images/input-switches.png" /></p>
+<p style="text-align:center"><i><b>Figure 5.</b> Analog switches configuration.</i></p>
+
+<p><br></p>
+<p>The switches are placed at the input of the <code>RHS2116</code> chip. This Intan chip uses stimulation supplies of +/-7 V, which means that the voltage compliance at the inputs of the chip should be +/-7 V. This fact rules out the majority of standard analog switches/muxes since their input/output voltage range is usually limited to +/-2.5 V or +5 V. In addition, the input/output capacitances of the switches add parasitic capacitances which could affect the performance of the neural amplifiers. The figure below shows the added capacitance at the input of each amplifier caused by the analog switches. Thus, we selected the <code>ADGS5414</code> octal analog switch because it has low parasitic switch capacitances and withstand an input voltage range higher than +/-7 V. These switches are powered with supplies higher or equal to +/-9 V.</p>
+<p><img alt="" src="../../images/input-switch-cap.png" /></p>
+<p style="text-align:center"><i><b>Figure 6.</b> Input switches capacitances.</i></p>
+
+<p><br></p>
+<p>One nice feature of the <code>ADGS5414</code> is its capability to <em>daisy-chain</em> many of them, creating a long shift-register using their SPI blocks.</p>
+<p><img alt="" src="../../images/adgs5414-spi-daisychain.png" /></p>
+<p style="text-align:center"><i><b>Figure 7.</b> Daisy-chain configuration of `ADGS5414` octal analog switches.</i></p>
+
+<p><br></p>
+<p>The <code>GND</code> for the analog switches is shared with the <code>RHD2164</code> and <code>RHS2116</code> chips.</p>
+<h2 id="rhd2164-rhs2116">RHD2164 &amp; RHS2116</h2>
+<p>The <code>RHD2164</code> and <code>RHS2116</code> <em>Intan</em> chips are used here without any modification from their usual configuration. Both <code>RHD2164</code> have a shared supply <code>VDD1</code> coming from the recording controller, and are set up with <code>LVDS</code> outputs. The <code>RHS2116</code> chip has independent supplies of <code>VDD2</code>, <code>VSTIMp</code>, and <code>VSTIMm</code> coming from the stimulation controller, and is set up with <code>LVDS</code> outputs. All 3x chips share the same <code>REF</code> electrode and the same <code>GND</code>. The <code>GND</code> is also shared with the analog switches.</p>
+<h2 id="interface-connector">Interface Connector</h2>
+<p>We are using the 36-pin A79024-001 <em>Omnetics</em> connector to bring all the signals from the headstage to the controller PCB. Using a single connector helps with simplifying the design. We assign the pins in the connector based on the three main parts of the headstage: recording, stimulation, and switches. This can be seen in the table and figure below.</p>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Pin Number</th>
+<th style="text-align: center;">Description</th>
+<th style="text-align: center;">Pin Number</th>
+<th style="text-align: center;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><code>T18</code></td>
+<td style="text-align: center;">VSTIMm</td>
+<td style="text-align: center;"><code>B18</code></td>
+<td style="text-align: center;">VDD2</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>T17</code></td>
+<td style="text-align: center;">VSTIMp</td>
+<td style="text-align: center;"><code>B17</code></td>
+<td style="text-align: center;">VDD1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>T16</code></td>
+<td style="text-align: center;">GND</td>
+<td style="text-align: center;"><code>B16</code></td>
+<td style="text-align: center;">GND</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>T15</code></td>
+<td style="text-align: center;">MISO1m</td>
+<td style="text-align: center;"><code>B15</code></td>
+<td style="text-align: center;">CSbm</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>T14</code></td>
+<td style="text-align: center;">MISO1p</td>
+<td style="text-align: center;"><code>B14</code></td>
+<td style="text-align: center;">CSbp</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>T13</code></td>
+<td style="text-align: center;">MISO2m</td>
+<td style="text-align: center;"><code>B13</code></td>
+<td style="text-align: center;">SCLKm</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>T12</code></td>
+<td style="text-align: center;">MISO2p</td>
+<td style="text-align: center;"><code>B12</code></td>
+<td style="text-align: center;">SCLKp</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>T11</code></td>
+<td style="text-align: center;">MOSIm</td>
+<td style="text-align: center;"><code>B11</code></td>
+<td style="text-align: center;">CSbm_STIM</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>T10</code></td>
+<td style="text-align: center;">MOSIp</td>
+<td style="text-align: center;"><code>B10</code></td>
+<td style="text-align: center;">CSbp_STIM</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>T9</code></td>
+<td style="text-align: center;">MOSIm_STIM</td>
+<td style="text-align: center;"><code>B9</code></td>
+<td style="text-align: center;">SCLKm_STIM</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>T8</code></td>
+<td style="text-align: center;">MOSIp_STIM</td>
+<td style="text-align: center;"><code>B8</code></td>
+<td style="text-align: center;">SCLKp_STIM</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>T7</code></td>
+<td style="text-align: center;">Unused</td>
+<td style="text-align: center;"><code>B7</code></td>
+<td style="text-align: center;">MISOm_STIM</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>T6</code></td>
+<td style="text-align: center;">Unused</td>
+<td style="text-align: center;"><code>B6</code></td>
+<td style="text-align: center;">MISOp_STIM</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>T5</code></td>
+<td style="text-align: center;">CSb_SW</td>
+<td style="text-align: center;"><code>B5</code></td>
+<td style="text-align: center;">SCLK_SW</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>T4</code></td>
+<td style="text-align: center;">MISO_SW</td>
+<td style="text-align: center;"><code>B4</code></td>
+<td style="text-align: center;">MOSI_SW</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>T3</code></td>
+<td style="text-align: center;">GND</td>
+<td style="text-align: center;"><code>B3</code></td>
+<td style="text-align: center;">GND</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>T2</code></td>
+<td style="text-align: center;">VDD_SW</td>
+<td style="text-align: center;"><code>B2</code></td>
+<td style="text-align: center;">VDD3</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>T1</code></td>
+<td style="text-align: center;">VSS_SW</td>
+<td style="text-align: center;"><code>B1</code></td>
+<td style="text-align: center;">VDD3</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><img alt="" src="../../images/headstage-interface-connector.png" /></p>
+<p style="text-align:center"><i><b>Figure 8.</b> Details of the Interface Connector footprint.</i></p>
+
+<h2 id="pcb">PCB</h2>
+<p>We use an 8 layer stack where we prioritize shielding of the traces connecting the electrode array with the analog switches and recording chip <code>RHD2164</code>. The table below shows a summary of our strategy. The top L1 and bottom L2 layers are used for minimal local routing around the components and <code>GND</code> plane. Layer L2 is used for supply and SPI routing of the analog switches. Adding a <code>GND</code> plane allows us to also use this layer for sensitive routing between the electrode pins and the analog switches (see figure below). Layer L3 is used as a <code>GND</code> plane to shield any signal routing from the switches supplies and SPI routing. Layers L4, L5, and L6 are used for analog routing between the electrode pins, switches, recording <code>RHD2164</code>, and stimulation <code>RHS2116</code> chips. Layer L4 is also used to route the <code>RHD2164</code> supplies from the interface connector. This routing is localized to the far right side of the board and shielded with <code>GND</code> planes in layers L3, L4, and L5. Layer L7 is used for some additional local routing between the switches and to bring the SPI signals to the interface connector. The SPI routing is shielded with a <code>GND</code> plane in layers L6, L7, and, where possible, in layer L8.</p>
+<p>The PCB for the <em>headstage</em> has a size of 30.2 x 25.5 mm<sup>2</sup>. The table below shows the PCB specifications and the figures below show a rendering of the PCB top and bottom sides.</p>
+<h4 id="pcb-specifications">PCB Specifications</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">PCB Specification</th>
+<th style="text-align: center;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Size</td>
+<td style="text-align: center;">30.2 x 25.5 mm<sup>2</sup></td>
+</tr>
+<tr>
+<td style="text-align: center;">Trace Width/Space</td>
+<td style="text-align: center;">3 mil / 3 mil</td>
+</tr>
+<tr>
+<td style="text-align: center;">Layers</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr>
+<td style="text-align: center;">Thru-Hole Via (Hole/Diameter)</td>
+<td style="text-align: center;">8 mil / 14 mil</td>
+</tr>
+<tr>
+<td style="text-align: center;">Microvia  (Hole/Diameter)</td>
+<td style="text-align: center;">6 mil / 12 mil</td>
+</tr>
+<tr>
+<td style="text-align: center;">Thickness</td>
+<td style="text-align: center;">0.039 in (1 mm)</td>
+</tr>
+<tr>
+<td style="text-align: center;">Surface Finish</td>
+<td style="text-align: center;">ENIG</td>
+</tr>
+<tr>
+<td style="text-align: center;">Copper Weight</td>
+<td style="text-align: center;">1 oz</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h4 id="pcb-stack-up">PCB Stack Up</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Layer</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td>Minimal local routing + <code>GND</code> plane</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td>Prepreg</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td>Supplies + SPI + some electrode signal routing + <code>GND</code> plane</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td>Core</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td>GND plane</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td>Prepreg</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td>Signal routing + some supply traces + <code>GND</code> plane</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td>Core</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td>Signal routing + <code>GND</code> plane</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td>Prepreg</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td>Signal routing + <code>GND</code> plane</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td>Core</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td><code>GND</code> plane + SPI routing</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td>Prepreg</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td>Minimal local routing + <code>GND</code> plane</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h4 id="headstage-pcb-vias">Headstage PCB Vias</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Layer</th>
+<th style="text-align: center;">Via1</th>
+<th style="text-align: center;">&mu;Via1</th>
+<th style="text-align: center;">&mu;Via2</th>
+<th style="text-align: center;">&mu;Via3</th>
+<th style="text-align: center;">&mu;Via4</th>
+<th style="text-align: center;">&mu;Via5</th>
+<th style="text-align: center;">&mu;Via6</th>
+<th style="text-align: center;">&mu;Via7</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">-----</td>
+<td style="text-align: center;">-----</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">|</td>
+<td style="text-align: center;">|</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">|</td>
+<td style="text-align: center;">-----</td>
+<td style="text-align: center;">-----</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">|</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">|</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">|</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">-----</td>
+<td style="text-align: center;">-----</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">|</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">|</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">|</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">-----</td>
+<td style="text-align: center;">-----</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">|</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">|</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">|</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">-----</td>
+<td style="text-align: center;">-----</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">|</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">|</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">|</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">-----</td>
+<td style="text-align: center;">-----</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">|</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">|</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">|</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">-----</td>
+<td style="text-align: center;">-----</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">|</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">|</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">-----</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">-----</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><img alt="" src="../../images/headstage-pcb-layers.png" /></p>
+<p style="text-align:center"><i><b>Figure 9.</b> PCB layout with detailed routing for each layer.</i></p>
+
+<p><br></p>
+<p>The reference electrode <code>REF</code> is routed in layer L6 with its trace shielded with <code>GND</code> planes in layers L5, L6, and L7. This is shown in the figure below.</p>
+<p><img alt="" src="../../images/headstage-ref-routing.png" /></p>
+<p style="text-align:center"><i><b>Figure 10.</b> Reference electrode routing.</i></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 - 2025 Manuel Monge
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.sections", "navigation.path", "navigation.indexes", "navigation.top", "content.code.copy", "content.code.select", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/mermaid.mjs" type="module"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
