@@ -492,7 +492,7 @@ PROJECT_SOURCES = tt_um_top.v
 
 We will run our testbench using `cocotb`. Create/open `test.py`.
 
-``` verilog
+``` python
 import cocotb
 from cocotb.clock import Clock
 from cocotb.triggers import ClockCycles, Timer
@@ -533,7 +533,7 @@ async def test_project(dut):
 
     # Shift in the input values bit by bit into the scanchain using SDI and SEN signals.
     dut._log.info("Shift in the data into the scanchain")
-    
+
     set_bit_in_array(dut.ui_in, 1, 1) # SDI = 1
     await Timer(1*clkperiod, unit="us")
     set_bit_in_array(dut.ui_in, 1, 0) # SDI = 0
@@ -570,11 +570,23 @@ async def test_project(dut):
     await Timer(1*clkperiod, unit="us")
     set_bit_in_array(dut.ui_in, 0, 0) # SEN = 0
 
-    # Assert if the parallel output of the scanchain is correct after shifting in the input values.
-    dout_value = str(dut.dut.dout.value) # Get the dut.sdo value in binary string format
-    dut._log.info("dout_value: %s", dout_value)
 
-    assert dout_value == din_value # Check if the parallel output matches the input value.
+    obj = getattr(dut.dut, 'dout', None) # Check for dut-internal variable "dout" (which is the case for RTL simulation but not for GL simulation)
+    
+    if obj == None:
+        sim_is_rtl = 0
+        dut._log.info("GL simulation detected")
+    else:
+        sim_is_rtl = 1
+        dut._log.info("RTL simulation detected")
+
+
+    if sim_is_rtl:
+        # Assert if the parallel output of the scanchain is correct after shifting in the input values.
+        dout_value = str(dut.dut.dout.value) # Get the dut.sdo value in binary string format
+        dut._log.info("dout_value: %s", dout_value)
+        assert dout_value == din_value # Check if the parallel output matches the input value.
+    
 
     # continue with test by scanning out all bits
     await Timer(16*clkperiod, unit="us")
@@ -584,7 +596,7 @@ async def test_project(dut):
     sdo_last = int(aux[0]) # Get the last value of SDO
     dut._log.info("sdo_last: %d", sdo_last)
 
-    assert sdo_last == 0 # Check if the last value of SDO is 1.
+    assert sdo_last == 0 # Check if the last value of SDO is 0.
 ```
 
 
@@ -611,7 +623,7 @@ COCOTB_TEST_MODULES=test COCOTB_TESTCASE= COCOTB_TEST_FILTER= COCOTB_TOPLEVEL=tb
      -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.12.4 interpreter at /home/manuel/setups/ttsetup/venv/bin/python3
      -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
      0.00ns INFO     cocotb                             Running on Icarus Verilog version 12.0 (stable)
-     0.00ns INFO     cocotb                             Seeding Python random module with 1779465785
+     0.00ns INFO     cocotb                             Seeding Python random module with 1779493212
      0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /home/manuel/setups/ttsetup/venv/lib/python3.12/site-packages/cocotb
      0.00ns INFO     cocotb                             Running tests
      0.00ns INFO     cocotb.regression                  running test.test_project (1/1)
@@ -621,15 +633,16 @@ FST info: dumpfile tb.fst opened for output.
   5500.00ns INFO     cocotb.tb                          Test project behavior
   5500.00ns INFO     cocotb.tb                          din_value: 1001100110011001
   5500.00ns INFO     cocotb.tb                          Shift in the data into the scanchain
+ 22500.00ns INFO     cocotb.tb                          RTL simulation detected
  22500.00ns INFO     cocotb.tb                          dout_value: 1001100110011001
  38500.00ns INFO     cocotb.tb                          sdo_last: 0
  38500.00ns INFO     cocotb.regression                  test.test_project passed
  38500.00ns INFO     cocotb.regression                  **************************************************************************************
                                                         ** TEST                          STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
                                                         **************************************************************************************
-                                                        ** test.test_project              PASS       38500.00           0.00   14884386.03  **
+                                                        ** test.test_project              PASS       38500.00           0.00   12403464.47  **
                                                         **************************************************************************************
-                                                        ** TESTS=1 PASS=1 FAIL=0 SKIP=0              38500.00           0.00   10402003.61  **
+                                                        ** TESTS=1 PASS=1 FAIL=0 SKIP=0              38500.00           0.00    8707506.28  **
                                                         **************************************************************************************
                                                         
 make[1]: Leaving directory '/data/projects/tt2606/test'
@@ -664,7 +677,50 @@ Copy your gate-level netlist to your test folder. Execute the following:
 $ cd [your-project-directory]/tt2606/test
 $ TOP_MODULE=$(cd .. && ./tt/tt_tool.py --print-top-module)
 $ cp ../runs/wokwi/final/pnl/$TOP_MODULE.pnl.v gate_level_netlist.v
+```
+
+Run the gate-level simulation executing:
+
+``` bash
 $ make -B GATES=yes
+```
+You should see in your terminal an output similar to this.
+
+``` bash
+make -B GATES=yes
+rm -f results.xml
+"make" -f Makefile results.xml
+make[1]: Entering directory '/data/projects/tt2606/test'
+mkdir -p sim_build/gl
+/usr/bin/iverilog -o sim_build/gl/sim.vvp -s tb -g2012 -DGL_TEST -DFUNCTIONAL -DUSE_POWER_PINS -DSIM -DUNIT_DELAY=#1 -I/data/projects/tt2606/test/../src -f sim_build/gl/cmds.f  /home/manuel/setups/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/verilog/primitives.v /home/manuel/setups/ttsetup/pdk/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/verilog/gf180mcu_fd_sc_mcu7t5v0.v /data/projects/tt2606/test/gate_level_netlist.v /data/projects/tt2606/test/tb.v
+rm -f results.xml
+COCOTB_TEST_MODULES=test COCOTB_TESTCASE= COCOTB_TEST_FILTER= COCOTB_TOPLEVEL=tb TOPLEVEL_LANG=verilog \
+         /usr/bin/vvp -M /home/manuel/setups/ttsetup/venv/lib/python3.12/site-packages/cocotb/libs -m libcocotbvpi_icarus   sim_build/gl/sim.vvp -fst   
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.12.4 interpreter at /home/manuel/setups/ttsetup/venv/bin/python3
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 12.0 (stable)
+     0.00ns INFO     cocotb                             Seeding Python random module with 1779493356
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /home/manuel/setups/ttsetup/venv/lib/python3.12/site-packages/cocotb
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running test.test_project (1/1)
+     0.00ns INFO     cocotb.tb                          Start
+     0.00ns INFO     cocotb.tb                          Reset
+FST info: dumpfile tb.fst opened for output.
+  5500.00ns INFO     cocotb.tb                          Test project behavior
+  5500.00ns INFO     cocotb.tb                          din_value: 1001100110011001
+  5500.00ns INFO     cocotb.tb                          Shift in the data into the scanchain
+ 22500.00ns INFO     cocotb.tb                          GL simulation detected
+ 38500.00ns INFO     cocotb.tb                          sdo_last: 0
+ 38500.00ns INFO     cocotb.regression                  test.test_project passed
+ 38500.00ns INFO     cocotb.regression                  **************************************************************************************
+                                                        ** TEST                          STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        **************************************************************************************
+                                                        ** test.test_project              PASS       38500.00           0.01    3462576.21  **
+                                                        **************************************************************************************
+                                                        ** TESTS=1 PASS=1 FAIL=0 SKIP=0              38500.00           0.01    3100508.89  **
+                                                        **************************************************************************************
+                                                        
+make[1]: Leaving directory '/data/projects/tt2606/test'
 ```
 
 

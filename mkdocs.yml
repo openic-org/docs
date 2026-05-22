@@ -32,7 +32,7 @@ repo_name: openic-org/docs
 repo_url: https://github.com/openic-org/docs
 
 # Copyright
-copyright: Copyright &copy; 2024 - 2025 Manuel Monge
+copyright: Copyright &copy; 2024 - 2026 Manuel Monge
 
 theme:
   name: material
