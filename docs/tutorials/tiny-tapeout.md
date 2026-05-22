@@ -7,46 +7,11 @@
 To get started, follow the instructions in this [link](https://tinytapeout.com/hdl/) to create an HDL project. Watch the YouTube video, it is very helpful. We will use the provided [GF template](https://github.com/TinyTapeout/ttgf-verilog-template) in this tutorial, but you can adapt/modify it to the technology you are working with.
 
 
-
-## 2. How to Submit an HDL Project
-
-!!! note
-    Here is a [link](https://youtu.be/fCGPKdmM3Dc?si=h22Dx0I146v3MaLY) to a Tiny Tapeout video explaining the processes. 
-
-If you already have a working project, follow this instructions to submit your design.
-
-1. Go to the repository template for your techology. For `GF180MCU`: https://github.com/TinyTapeout/ttgf-verilog-template.
-Press the `Use this template` button and create a new repository in your `GitHub` account. Make the repository `Public`.
-
-2. Enable `GitHub Actions`. Follow the instructions in the `README.md` file in the repository.
-
-3. Add the Verilog files under `src`, fill the metadata in the `info.yaml`.
-
-4. Add testbench files under `test`.
-
-5. Add some documentation about your project in `info.md` under `docs`.
-
-6. Every time you push a commit, `GitHub Actions` will run the `hardening` job, which consists of producing a `GDS` and verifying it according to `TT-Setup` (Tiny Tapeout setup), and produce the `documentation` of your design to be included in the chip datasheet.
-
-7. Revise your design until yo uget all three action buttons `green`.
-
-8. With the design passing all actions, go to [app.tinytapeout.com](https://app.tinytapeout.com).
-
-9. Sign in with your `GitHub` account, create a project by indicating the link to your repository, and press `submit`.
-
-10. With your project created, make it part of the tapeout by `submitting a revision`.
-
-11. You can also test the `hardening` process locally by installing some tools and following this example. However, the final run to submit your design will go through `GitHub Actions`.
-
-12. You can continue to make changes by submitting a new revision in the same app until the deadline.
-
-
-
-## 3. The Tiny Tapeout Interface
+## 2. The Tiny Tapeout Interface
 
 Tiny Tapeout interfaces with your project using a custom interface shown in the table and code below. Code copied from https://github.com/TinyTapeout/ttihp-verilog-template/blob/main/src/project.v.
 
-### Interface Table & Code
+### 2.1. Interface Table & Code
 
 === "Table"
 
@@ -94,7 +59,7 @@ Tiny Tapeout interfaces with your project using a custom interface shown in the 
     endmodule
     ```
 
-### Interface Diagram
+### 2.2. Interface Diagram
 
 ```mermaid
 flowchart LR
@@ -171,24 +136,25 @@ flowchart LR
 
 ```
 
-## 4. Your Project
+## 3. Example Project
 
-### Repository
+### 3.1. Repository
 
-1\. We have cloned the template repository [here](https://github.com/manuel-monge/tt2606). You can create your own repository by going to the [template repository](https://github.com/TinyTapeout/ttgf-verilog-template), pressing the `Use this template` button, and creating a new repository in your `GitHub` account. Make the repository `Public`.
+We have cloned the template repository [here](https://github.com/manuel-monge/tt2606). You can create your own repository by going to the [template repository](https://github.com/TinyTapeout/ttgf-verilog-template), pressing the `Use this template` button, and creating a new repository in your `GitHub` account. Make the repository `Public`.
 
 ``` bash
 $ cd [your-projects-directory]
 $ git clone https://github.com/manuel-monge/tt2606.git
 ```
 
-2\. Enable `GitHub Actions` by following the instructions in the `README.md` file in the repository.
+Enable `GitHub Actions` by following the instructions in the `README.md` file in the repository.
 
-### Design Files
 
-3\. We will use the design below in this tutorial. Add this Verilog file under `src` and fill the metadata in the `info.yaml`.
+### 3.2. Design Files
 
-=== "tt_top.v"
+We will use the design below in this tutorial. Add this Verilog file under `src` and fill the metadata in the `info.yaml`.
+
+=== "tt_um_top.v"
 
     ``` verilog
     /*******************************************************************
@@ -300,10 +266,10 @@ $ git clone https://github.com/manuel-monge/tt2606.git
     ``` yaml
     # Tiny Tapeout project information
     project:
-      title:        ""      # Project title
-      author:       "Manuel Monge"      # Your name
-      discord:      "manuelmonge85"      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-      description:  ""      # One line description of what your project does
+      title:        "RHD2164-MCU-SPI Bridge"   # Project title
+      author:       "Manuel Monge"             # Your name
+      discord:      "manuelmonge85"            # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
+      description:  "Various SPIs"             # One line description of what your project does
       language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
       clock_hz:     50000000  # Clock frequency in Hz (or 0 if not applicable)
 
@@ -311,13 +277,13 @@ $ git clone https://github.com/manuel-monge/tt2606.git
       tiles: "1x1"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 3x4 or 4x4
 
       # Your top module name must start with "tt_um_". Make it unique by including your github username:
-      top_module:  "tt_top"
+      top_module:  "tt_um_top"
 
       # List your project's source files here.
       # Source files must be in ./src and you must list each source file separately, one per line.
       # Don't forget to also update `PROJECT_SOURCES` in test/Makefile.
       source_files:
-        - "tt_top.v"
+        - "tt_um_top.v"
 
     # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
     # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
@@ -357,11 +323,11 @@ $ git clone https://github.com/manuel-monge/tt2606.git
     ```
 
 
-### Simulation/Testing Files
+### 3.3. Simulation/Testing Files
 
 Tiny Tapeout uses `cocotb` for testing. `Cocotb` allows you to use `Python` to write your testbench and run your simulations.
 
-4\. Add the testbench file shown below under `test`. Notice how your design is instantiated as `dut` (device-under-test). Code taken from [https://github.com/TinyTapeout/ttihp-verilog-template/blob/main/test/tb.v](https://github.com/TinyTapeout/ttihp-verilog-template/blob/main/test/tb.v).
+Add the testbench file shown below under `test`. Notice how your design is instantiated as `dut` (device-under-test). Code taken from [https://github.com/TinyTapeout/ttihp-verilog-template/blob/main/test/tb.v](https://github.com/TinyTapeout/ttihp-verilog-template/blob/main/test/tb.v).
 
 ``` verilog title="tb.v [Link to source above]"
 `default_nettype none
@@ -388,8 +354,20 @@ module tb ();
   wire [7:0] uo_out;
   wire [7:0] uio_out;
   wire [7:0] uio_oe;
+`ifdef GL_TEST
+  wire VPWR = 1'b1;
+  wire VGND = 1'b0;
+`endif
 
-  tt_top dut (
+  // Replace tt_um_example with your module name:
+  tt_um_top dut (
+
+      // Include power ports for the Gate Level test:
+`ifdef GL_TEST
+      .VPWR(VPWR),
+      .VGND(VGND),
+`endif
+
       .ui_in  (ui_in),    // Dedicated inputs
       .uo_out (uo_out),   // Dedicated outputs
       .uio_in (uio_in),   // IOs: Input path
@@ -404,17 +382,19 @@ endmodule
 ```
 
 
-### Documentation
+### 3.4. Documentation
 
-5\. Add some documentation about your project in `info.md` under `docs`.
+Add some documentation about your project in `info.md` under `docs`.
 
 
 
-## 5. Setting Up Local Tools
+## 4. Setting Up Local Tools
 
 We will use the following guides: [Local Hardening](https://tinytapeout.com/guides/local-hardening/) and [Testing Your Design](https://tinytapeout.com/hdl/testing/) from tiny Tapeout. 
 
-### Requirements
+### 4.1. Requirements
+
+Install (or verify) that you have the following tools.
 
 * `Python 3.11` or newer. I am currently using `Pthon 3.12.3`.
 
@@ -423,7 +403,7 @@ We will use the following guides: [Local Hardening](https://tinytapeout.com/guid
 $ python3 --version
 ```
 
-* Updated version of `Docker`. I am currently using `Docker 29.4.3`.
+* Updated version of `Docker`. I am currently using `Docker 29.5.0`.
 
 ``` bash
 # Check you python version
@@ -437,7 +417,8 @@ $ cd [your-project-directory]/tt2606
 $ git clone https://github.com/TinyTapeout/tt-support-tools tt
 ```
 
-### Python Environment and Dependencies
+### 4.2. Python Environment and Dependencies
+
 !!! note 
     We have used Python versions `3.11` and `3.12.3` successfully. Version `3.14` didn't work.
 
@@ -451,7 +432,7 @@ $ cd [your-project-directory]/tt2606/tt
 $ pip install -r requirements.txt
 ```
 
-### Set Up Environment Variables
+### 4.3. Set Up Environment Variables
 
 Set up `PDK_ROOT`, `PDK`, and `LIBRELANE_TAG`.
 
@@ -462,7 +443,7 @@ $ vi env-var
 
 ``` bash title="env-var"
 export PDK_ROOT=~/setups/ttsetup/pdk
-export PDK=sky130A
+export PDK=gf180mcuD
 export LIBRELANE_TAG=3.0.0rc1
 ```
 
@@ -472,7 +453,7 @@ Then, source it with:
 $ source env-var
 ```
 
-### Install LibreLane
+### 4.4. Install LibreLane
 
 Install `LibreLane` as shown in the TT guide.
 
@@ -480,7 +461,12 @@ Install `LibreLane` as shown in the TT guide.
 $ pip install librelane==$LIBRELANE_TAG
 ```
 
-## 3. Harden Your Project
+## 5. Simulating Your Project
+
+
+
+
+## 6. Harden Your Project
 
 !!! info
     **Hardening a Project:** For Tiny Tapeout, hardening a project means going from `HDL` to `GDS`. When you call the hardening function, it uses `LibreLane`, inside a `Docker` container, to synthetize, place, and route your `HDL` design.
@@ -488,24 +474,29 @@ $ pip install librelane==$LIBRELANE_TAG
 Generate `LibreLane` configuration file.
 
 ``` bash
-$ cd ~/projects/tt/factory-test
-$ ./tt/tt_tool.py --create-user-config
+$ cd [your-project-directory]/tt2606
+$ ./tt/tt_tool.py --create-user-config --gf
 ```
 
 Harden the design.
 
 ``` bash
-$ ./tt/tt_tool.py --harden
+$ ./tt/tt_tool.py --harden --gf
+```
+
+Check for any possible warnings.
+
+``` bash
+$ ./tt/tt_tool.py --print-warnings --gf
 ```
 
 View the design in `OpenRoad`.
 
 ``` bash
-$ ./tt/tt_tool.py --open-in-openroad
+$ ./tt/tt_tool.py --open-in-openroad --gf
 ```
 
-![](images/factory-test-openroad.png)
-
+![](images/test-openroad.png)
 
 and in `KLayout`.
 
@@ -513,11 +504,6 @@ and in `KLayout`.
 $ ./tt/tt_tool.py --open-in-klayout
 ```
 
-![](images/factory-test-klayout.png)
+![](images/test-klayout.png)
 
-
-
-## 4. Your Design
-
-We will duplicate the current `factory-test` project and replicate the flow with a `scanchain` as our digital design.
 
