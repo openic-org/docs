@@ -390,7 +390,7 @@ Add some documentation about your project in `info.md` under `docs`.
 
 ## 4. Setting Up Local Tools
 
-We will use the following guides: [Local Hardening](https://tinytapeout.com/guides/local-hardening/) and [Testing Your Design](https://tinytapeout.com/hdl/testing/) from tiny Tapeout. 
+We will use the following guide [Local Hardening](https://tinytapeout.com/guides/local-hardening/). 
 
 ### 4.1. Requirements
 
@@ -461,8 +461,211 @@ Install `LibreLane` as shown in the TT guide.
 $ pip install librelane==$LIBRELANE_TAG
 ```
 
+
+### 4.5. Install Verilog simulation tools
+
+We will install `iverilog`, `verilator`, `GTKWave`, `cocotb`, and `pytest`.
+
+``` bash
+$ sudo apt install iverilog verilator
+$ sudo apt install gtkwave
+$ pip3 install cocotb pytest
+```
+
+
 ## 5. Simulating Your Project
 
+We will use the following guides: [Local Hardening](https://tinytapeout.com/guides/local-hardening/) and [Testing Your Design](https://tinytapeout.com/hdl/testing/) from tiny Tapeout. 
+
+### 5.1. Set up your simulation
+
+Add your verilog files to the `Makefile` by updating the list `PROJECT_SOURCES` with, for example:
+
+``` Makefile
+PROJECT_SOURCES = top.v module1.v module2.v module3.v
+```
+
+For this tutorial, it is only one file.
+``` Makefile
+PROJECT_SOURCES = tt_um_top.v
+```
+
+We will run our testbench using `cocotb`. Create/open `test.py`.
+
+``` verilog
+import cocotb
+from cocotb.clock import Clock
+from cocotb.triggers import ClockCycles, Timer
+
+# Function to set a specific bit in an array of bits (like ui_in)
+def set_bit_in_array(array, index, bit_value):
+    # bit_value should be 0 or 1
+    aux = array.value
+    aux[index] = bit_value
+    array.value = aux 
+
+# Test to verify the behavior of the project
+@cocotb.test()
+async def test_project(dut):
+    dut._log.info("Start")
+
+    # Set the clock period to 1 us (1 MHz)
+    clkperiod = 1 # in us
+    clock = Clock(dut.clk, clkperiod, unit="us")
+    cocotb.start_soon(clock.start())
+
+    # Reset
+    dut._log.info("Reset")
+    dut.ena.value = 1
+    dut.ui_in.value = 0
+    dut.uio_in.value = 0
+    dut.rst_n.value = 0
+    await ClockCycles(dut.clk, 1)
+    dut.rst_n.value = 1
+    await ClockCycles(dut.clk, 5)
+    await Timer(0.5*clkperiod, unit="us") # half clock cycle
+
+    dut._log.info("Test project behavior")
+
+    # Set the scanchain inputs for 0x1001100110011001
+    din_value = "1001100110011001"
+    dut._log.info("din_value: %s", din_value)
+
+    # Shift in the input values bit by bit into the scanchain using SDI and SEN signals.
+    dut._log.info("Shift in the data into the scanchain")
+    
+    set_bit_in_array(dut.ui_in, 1, 1) # SDI = 1
+    await Timer(1*clkperiod, unit="us")
+    set_bit_in_array(dut.ui_in, 1, 0) # SDI = 0
+    await Timer(1*clkperiod, unit="us")
+    set_bit_in_array(dut.ui_in, 1, 0) # SDI = 0
+    await Timer(1*clkperiod, unit="us")
+    set_bit_in_array(dut.ui_in, 1, 1) # SDI = 1
+    await Timer(1*clkperiod, unit="us")
+    set_bit_in_array(dut.ui_in, 1, 1) # SDI = 1
+    await Timer(1*clkperiod, unit="us")
+    set_bit_in_array(dut.ui_in, 1, 0) # SDI = 0
+    await Timer(1*clkperiod, unit="us")
+    set_bit_in_array(dut.ui_in, 1, 0) # SDI = 0
+    await Timer(1*clkperiod, unit="us")
+    set_bit_in_array(dut.ui_in, 1, 1) # SDI = 1
+    await Timer(1*clkperiod, unit="us")
+    set_bit_in_array(dut.ui_in, 1, 1) # SDI = 1
+    await Timer(1*clkperiod, unit="us")
+    set_bit_in_array(dut.ui_in, 1, 0) # SDI = 0
+    await Timer(1*clkperiod, unit="us")
+    set_bit_in_array(dut.ui_in, 1, 0) # SDI = 0
+    await Timer(1*clkperiod, unit="us")
+    set_bit_in_array(dut.ui_in, 1, 1) # SDI = 1
+    await Timer(1*clkperiod, unit="us")
+    set_bit_in_array(dut.ui_in, 1, 1) # SDI = 1
+    await Timer(1*clkperiod, unit="us")
+    set_bit_in_array(dut.ui_in, 1, 0) # SDI = 0
+    await Timer(1*clkperiod, unit="us")
+    set_bit_in_array(dut.ui_in, 1, 0) # SDI = 0
+    await Timer(1*clkperiod, unit="us")
+    set_bit_in_array(dut.ui_in, 1, 1) # SDI = 1
+    await Timer(1*clkperiod, unit="us")
+    dut.ui_in.value = "00000001" # SDI = 0; SEN = 1
+    await Timer(1*clkperiod, unit="us")
+    set_bit_in_array(dut.ui_in, 0, 0) # SEN = 0
+
+    # Assert if the parallel output of the scanchain is correct after shifting in the input values.
+    dout_value = str(dut.dut.dout.value) # Get the dut.sdo value in binary string format
+    dut._log.info("dout_value: %s", dout_value)
+
+    assert dout_value == din_value # Check if the parallel output matches the input value.
+
+    # continue with test by scanning out all bits
+    await Timer(16*clkperiod, unit="us")
+
+    # Verify the last value of SDO after scanning out all bits is Zero.
+    aux = str(dut.uo_out.value) # Get the output value in binary string format
+    sdo_last = int(aux[0]) # Get the last value of SDO
+    dut._log.info("sdo_last: %d", sdo_last)
+
+    assert sdo_last == 0 # Check if the last value of SDO is 1.
+```
+
+
+### 5.2. Running the RTL simulation
+
+To run the RTL simulation, execute:
+
+``` bash
+make -B
+```
+
+You should see in your terminal an output similar to this.
+
+``` bash
+$ make -B
+rm -f results.xml
+"make" -f Makefile results.xml
+make[1]: Entering directory '/data/projects/tt2606/test'
+mkdir -p sim_build/rtl
+/usr/bin/iverilog -o sim_build/rtl/sim.vvp -s tb -g2012 -I/data/projects/tt2606/test/../src -f sim_build/rtl/cmds.f  /data/projects/tt2606/test/../src/tt_um_top.v /data/projects/tt2606/test/tb.v
+rm -f results.xml
+COCOTB_TEST_MODULES=test COCOTB_TESTCASE= COCOTB_TEST_FILTER= COCOTB_TOPLEVEL=tb TOPLEVEL_LANG=verilog \
+         /usr/bin/vvp -M /home/manuel/setups/ttsetup/venv/lib/python3.12/site-packages/cocotb/libs -m libcocotbvpi_icarus   sim_build/rtl/sim.vvp -fst   
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.12.4 interpreter at /home/manuel/setups/ttsetup/venv/bin/python3
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 12.0 (stable)
+     0.00ns INFO     cocotb                             Seeding Python random module with 1779465785
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /home/manuel/setups/ttsetup/venv/lib/python3.12/site-packages/cocotb
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running test.test_project (1/1)
+     0.00ns INFO     cocotb.tb                          Start
+     0.00ns INFO     cocotb.tb                          Reset
+FST info: dumpfile tb.fst opened for output.
+  5500.00ns INFO     cocotb.tb                          Test project behavior
+  5500.00ns INFO     cocotb.tb                          din_value: 1001100110011001
+  5500.00ns INFO     cocotb.tb                          Shift in the data into the scanchain
+ 22500.00ns INFO     cocotb.tb                          dout_value: 1001100110011001
+ 38500.00ns INFO     cocotb.tb                          sdo_last: 0
+ 38500.00ns INFO     cocotb.regression                  test.test_project passed
+ 38500.00ns INFO     cocotb.regression                  **************************************************************************************
+                                                        ** TEST                          STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        **************************************************************************************
+                                                        ** test.test_project              PASS       38500.00           0.00   14884386.03  **
+                                                        **************************************************************************************
+                                                        ** TESTS=1 PASS=1 FAIL=0 SKIP=0              38500.00           0.00   10402003.61  **
+                                                        **************************************************************************************
+                                                        
+make[1]: Leaving directory '/data/projects/tt2606/test'
+```
+
+You can see your simulation waveforms by running `GTKWave`. If you run it in the background, you can have a persistent `GUI` with your waveforms while you modigy your testbench.
+
+``` bash
+$ gtkwave tb.fst &
+```
+
+Here is an image of the simulation results.
+
+![](images/sim-rtl-waveforms.png)
+
+To save your current `GTKWave` wave configuration, you can save it to a `gtkw` file using the `GUI`. You can reopen your results by executing:
+
+``` bash
+$ gtkwave tb.fst tb.gtkw &
+```
+
+
+
+### 5.3. Running the Gate-Level simulation
+
+!!! warning
+    You first need to `harden` your project to run a `gate-level` simulation.
+
+Copy your gate-level netlist to your test folder. Execute the following:
+
+``` bash
+$ cd [your-project-directory]/tt2606/test
+$ TOP_MODULE=$(cd .. && ./tt/tt_tool.py --print-top-module)
+$ cp ../runs/wokwi/final/pnl/$TOP_MODULE.pnl.v gate_level_netlist.v
+$ make -B GATES=yes
+```
 
 
 
