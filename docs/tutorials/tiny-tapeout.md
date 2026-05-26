@@ -712,7 +712,7 @@ You should see in your terminal an output similar to this.
 
 
 ``` bash
-make -B GATES=yes
+$ make -B GATES=yes
 rm -f results.xml
 "make" -f Makefile results.xml
 make[1]: Entering directory '/data/projects/tt2606/test'
