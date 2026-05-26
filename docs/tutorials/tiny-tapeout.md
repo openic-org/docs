@@ -4,12 +4,12 @@
 
 [Tiny Tapeout](https://tinytapeout.com/) is a service that allows you to buy small `tiles` within a pre-built framework to fabricate a custom chip with your design at a very low cost. For this purpose, it uses `OpenPDKs` from SkyWaters, GlobalFoundries, and IHP through `ChipIgnite`, `Wafer.Space`, and `IHP`, resepctively.
 
-To get started, follow the instructions in this [link](https://tinytapeout.com/hdl/) to create an HDL project. Watch the YouTube video, it is very helpful. We will use the provided [GF template](https://github.com/TinyTapeout/ttgf-verilog-template) in this tutorial, but you can adapt/modify it to the technology you are working with.
+To get started, follow the instructions in this [link](https://tinytapeout.com/hdl/) to create an HDL project. Watch the YouTube video, it is very helpful. We will use the provided [GF template](https://github.com/TinyTapeout/ttgf-verilog-template) in this tutorial. Templates for other technologies are available at [Tiny Tapeout](https://tinytapeout.com/).
 
 
 ## 2. The Tiny Tapeout Interface
 
-Tiny Tapeout interfaces with your project using a custom interface shown in the table and code below. Code copied from https://github.com/TinyTapeout/ttihp-verilog-template/blob/main/src/project.v.
+Tiny Tapeout interfaces with your project using the custom interface shown in the table and code below. Code copied from [https://github.com/TinyTapeout/ttihp-verilog-template/blob/main/src/project.v](https://github.com/TinyTapeout/ttihp-verilog-template/blob/main/src/project.v).
 
 ### 2.1. Interface Table & Code
 
@@ -31,7 +31,7 @@ Tiny Tapeout interfaces with your project using a custom interface shown in the 
 
     ```verilog linenums="1"
     /*
-    * Copyright (c) 2024 Your Name
+    * Copyright (c) 2026 Manuel Monge
     * SPDX-License-Identifier: Apache-2.0
     */
 
@@ -140,7 +140,7 @@ flowchart LR
 
 ### 3.1. Repository
 
-We have cloned the template repository [here](https://github.com/manuel-monge/tt2606). You can create your own repository by going to the [template repository](https://github.com/TinyTapeout/ttgf-verilog-template), pressing the `Use this template` button, and creating a new repository in your `GitHub` account. Make the repository `Public`.
+We have cloned the template repository [github.com/manuel-monge/tt2606](https://github.com/manuel-monge/tt2606). You can create your own repository by going to the [template repository](https://github.com/TinyTapeout/ttgf-verilog-template), pressing the `Use this template` button, and creating a new repository in your `GitHub` account. Make the repository `Public`.
 
 ``` bash
 $ cd [your-projects-directory]
@@ -199,7 +199,7 @@ We will use the design below in this tutorial. Add this Verilog file under `src`
         assign sclk = clk;
         assign sen = ui_in[0];
         assign sdi = ui_in[1];
-        assign sdo = uo_out[0];
+        assign uo_out[0] = sdo;
 
         // *****************************************************************
         // END: Description of your design
@@ -384,13 +384,28 @@ endmodule
 
 ### 3.4. Documentation
 
-Add some documentation about your project in `info.md` under `docs`.
+Add some documentation about your project in `info.md` under `docs`. For example:
+
+``` markdown title="docs/info.md"
+## How it works
+
+This design implements a simple scanchain.
+
+## How to test
+
+Connect the chip to an FPGA/MCU. Send data in and check the desired change happened.
+
+## External hardware
+
+* FPGA or MCU
+
+```
 
 
 
 ## 4. Setting Up Local Tools
 
-We will use the following guide [Local Hardening](https://tinytapeout.com/guides/local-hardening/). 
+We will use the following guide [Local Hardening](https://tinytapeout.com/guides/local-hardening/) to install the required tools to run `hardening` locally. 
 
 ### 4.1. Requirements
 
@@ -492,7 +507,7 @@ PROJECT_SOURCES = tt_um_top.v
 
 We will run our testbench using `cocotb`. Create/open `test.py`.
 
-``` python
+``` python title="test.py"
 import cocotb
 from cocotb.clock import Clock
 from cocotb.triggers import ClockCycles, Timer
@@ -679,12 +694,22 @@ $ TOP_MODULE=$(cd .. && ./tt/tt_tool.py --print-top-module)
 $ cp ../runs/wokwi/final/pnl/$TOP_MODULE.pnl.v gate_level_netlist.v
 ```
 
+If needed, modify the `test/Makefile` to point to the PDK installation directory. Locate the lines with `$(PDK_ROOT)` and change them to:
+
+``` bash
+VERILOG_SOURCES += $(PDK_ROOT)/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/verilog/primitives.v
+VERILOG_SOURCES += $(PDK_ROOT)/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/verilog/gf180mcu_fd_sc_mcu7t5v0.v
+```
+
+
 Run the gate-level simulation executing:
 
 ``` bash
 $ make -B GATES=yes
 ```
+
 You should see in your terminal an output similar to this.
+
 
 ``` bash
 make -B GATES=yes
@@ -722,6 +747,17 @@ FST info: dumpfile tb.fst opened for output.
                                                         
 make[1]: Leaving directory '/data/projects/tt2606/test'
 ```
+
+
+Similarly, you can see your simulation waveforms by running `GTKWave`.
+
+``` bash
+$ gtkwave tb.fst &
+```
+
+Here is an image of the simulation results.
+
+![](images/sim-gl-waveforms.png)
 
 
 
