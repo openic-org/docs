@@ -796,7 +796,7 @@ $ ./tt/tt_tool.py --open-in-openroad --gf
 and in `KLayout`.
 
 ``` bash
-$ ./tt/tt_tool.py --open-in-klayout
+$ ./tt/tt_tool.py --open-in-klayout --gf
 ```
 
 ![](images/test-klayout.png)
